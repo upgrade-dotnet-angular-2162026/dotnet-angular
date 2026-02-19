@@ -1,17 +1,42 @@
-//simple-if and if-else
-let a=-20;
-if(a>0)
-{
-    console.log('a is +ve value')
+//loops or iterative statements
+//for
+//while
+//do..while
+//for ...of(ES6)
+//for ...in(ES6)
+//for
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
 }
-
-if(a>0)
-console.log('a is +ve value');
-else
-console.log('a is -ve value');
-let c=10;
-let b=20;
-if(a>b)
-console.log(`Max:${a} \nMin:${b}`)
-else
-console.log(`Max:${b}\nMin:${a}`)
+for (let i = 1; i <= 100000; i++) {
+    if (i === 10)
+        break;
+    console.log(i);
+}
+//while
+let i = 1;
+while (i <= 5) {
+    console.log(i);
+    i++
+}
+//do-while
+i = 6;
+do {
+    console.log(i);
+    i++;
+} while (i <= 5);
+//for ... of
+let colors = ["red", "blue", 'orange']
+for (let color of colors) {
+    console.log(color);
+}
+//for ... in
+let user = {
+    name: 'Virat',
+    age: 35
+};
+console.log('Name: ' + user.name + ' age: ' + user.age);
+console.log(`name:${user.name} age:${user.age}`);
+for (let key in user) {
+    console.log(`${key}:${user[key]}`)
+}

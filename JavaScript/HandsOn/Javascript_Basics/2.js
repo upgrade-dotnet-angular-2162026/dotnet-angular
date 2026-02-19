@@ -5,3 +5,4 @@ console.log(`Name: ${k}`)
 k=10;
 console.log("k value "+k)
 console.log(`k value ${k}`)
+console.log(`k=${k} a=${a}`)
