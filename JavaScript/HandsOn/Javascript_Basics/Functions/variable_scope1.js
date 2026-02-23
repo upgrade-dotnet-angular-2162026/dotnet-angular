@@ -1,4 +1,4 @@
-let global='This is global variable';
+var global='This is global variable';
 // function fun()
 // {
 //     let global='This is local varialbe';
