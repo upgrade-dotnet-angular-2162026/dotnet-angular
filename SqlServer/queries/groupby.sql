@@ -25,3 +25,7 @@ group by CustomerId
 select CustomerId,COUNT(*) as TotalAccounts from Accounts
 group by CustomerId having Count(*)>1
 
+select BranchId,Sum(Balance) as TotalBalance from Accounts where BranchId<>1001 Group by BranchId
+having sum(balance)>20000
+select * from Branches
+
