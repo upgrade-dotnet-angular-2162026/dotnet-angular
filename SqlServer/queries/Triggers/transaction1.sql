@@ -1,11 +1,14 @@
-create procedure Money_withdraw(@amt int,@accId int)
+create procedure 
+Money_withdraw(@amt int,@accId int)
 as
 begin
 begin try
 begin transaction
-update Accounts set balance=balance-@amt where AccountID=@accId
+update Accounts set 
+balance=balance-@amt where AccountID=@accId
 declare @balance int
-select @balance=balance from Accounts where AccountID=@accId
+select @balance=balance from 
+Accounts where AccountID=@accId
 if @balance<5000
 rollback
 else
