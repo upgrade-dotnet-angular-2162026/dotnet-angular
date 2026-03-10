@@ -1,4 +1,5 @@
-create procedure sp_getcustomresbycity(@city varchar(20))
+create procedure sp_getcustomresbycity
+(@city varchar(20))
 as
 begin
 select * from Customers where city=@city

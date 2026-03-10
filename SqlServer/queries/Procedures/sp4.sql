@@ -25,3 +25,23 @@ values(@Name,@Dept,@Salary)
 end
 exec AddEmployee 'Sachin','Loans',56000
 exec AddEmployee 'John','Finance',40000
+create procedure UpdateEmployeeSalary(@employeeId int,@newSalray int)
+as
+begin
+update Employees set Salray=@newSalray where EmployeeId=@employeeId
+end
+select * from Employees
+exec UpdateEmployeeSalary 100,55000
+create procedure DeleteEmployee(@employeeId int)
+as
+begin
+declare @count int
+select @count=count(*) from Employees where EmployeeId=@employeeId
+if @count=1
+begin
+delete from Employees where EmployeeId=@employeeId
+end
+else
+print 'Invalid EmployeeId'
+end
+exec DeleteEmployee 100
