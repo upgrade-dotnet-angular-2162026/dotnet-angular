@@ -19,7 +19,7 @@ namespace HandsOnClassVariables_ReadOnly
         {
             Product p = new Product();
             p.Name="Test";
-            p.Id = 54098;
+            //p.Id = 54098; //can not change read only at runtime
             Console.WriteLine(p.Id+" "+p.Name);
         }
     }

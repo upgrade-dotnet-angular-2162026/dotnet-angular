@@ -12,7 +12,8 @@ namespace HandsOnClassVariables_Static
         public const double bonus = 5000; //not modifiable
         public void Details()
         {
-            Console.WriteLine($"Id:{empId} Name:{name} Company={company} Bonous={bonus}");
+            Console.WriteLine
+    ($"Id:{empId} Name:{name} Company={company} Bonous={bonus}");
         }
     }
     class Program
@@ -20,14 +21,17 @@ namespace HandsOnClassVariables_Static
         static void Main()
         {
             Employee.company = "TCS";
-            Employee e1 = new Employee() { empId=234,name="Charan"};
-            Employee e2 = new Employee() { empId=321,name="Mohan"};
+            Employee e1 = new Employee() { empId=234,
+                name="Charan"};
+            Employee e2 = new Employee() { empId=321,
+                name="Mohan"};
             Console.WriteLine(Employee.company);
             Console.WriteLine(Employee.bonus); //access const data using classname
             e1.Details();
             e2.Details();
             Employee.company = "CTS";
-            Employee e3 = new Employee() { empId = 322, name = "Kavya" };
+            Employee e3 = new Employee() { empId = 322, 
+                name = "Kavya" };
             e3.Details();
 
         }
