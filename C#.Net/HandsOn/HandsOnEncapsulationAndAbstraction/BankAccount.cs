@@ -37,6 +37,10 @@ namespace HandsOnEncapsulation
             get { return balance; }
            
         }
+        public decimal CheckBalance()
+        {
+            return balance;
+        }
     }
 
     class Program
@@ -51,6 +55,7 @@ namespace HandsOnEncapsulation
 
             // Can't access balance directly (account.balance ❌)
             Console.WriteLine($"Current Balance: {account.Balance}");
+            Console.WriteLine($"Current Balance: {account.CheckBalance()}");
             /*Here, the balance field is hidden (private) and can only be accessed via methods or properties.
                     This prevents misuse like account.balance = -1000.*/
         }
