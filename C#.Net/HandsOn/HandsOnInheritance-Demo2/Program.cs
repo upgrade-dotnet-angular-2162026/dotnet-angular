@@ -9,10 +9,11 @@
             Clothes tshirt = new Clothes("T-Shirt", 499, 50, "L");
 
             mobile.DisplayInfo();       // Mobile.DisplayInfo()
+            tshirt.DisplayInfo();       // Cloth.DisplayInfo()
             ((Electronics)mobile).DisplayInfo(); // Electronics.DisplayInfo()
             ((Product)mobile).DisplayInfo();     // Product.DisplayInfo()
 
-            tshirt.DisplayInfo();       // Product.DisplayInfo()
+            
 
             Console.WriteLine("\n=== Payment ===");
             CreditCardPayment payment = new CreditCardPayment("1234-5678-9999", 150000);

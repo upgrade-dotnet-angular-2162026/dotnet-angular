@@ -1,8 +1,8 @@
-﻿namespace HandsOnPolymorphism_Demo2
+﻿using System;
+using System.Collections.Generic;
+namespace HandsOnPolymorphism_Demo2
 {
-    using System;
-    using System.Collections.Generic;
-    #region Polymorphism: Cart (Method Overloading)
+  
     public class Cart
     {
         private List<Product> products = new List<Product>();

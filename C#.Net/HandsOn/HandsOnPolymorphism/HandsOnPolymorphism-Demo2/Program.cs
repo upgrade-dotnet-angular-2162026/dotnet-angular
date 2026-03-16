@@ -25,8 +25,8 @@
             Payment payment1 = new CreditCardPayment("1234-5678-9999", 150000);
             Payment payment2 = new UpiPayment("adrija@upi", 5000);
 
-            decimal total = cart.TotalAmount();
-            payment1.Pay(total);   // pays total via credit card
+            //decimal total = cart.TotalAmount();
+            payment1.Pay(50000);   // pays total via credit card
             payment2.Pay(3000);    // pays partial via UPI
         }
     }

@@ -1,8 +1,11 @@
 ﻿namespace HandsOnPolymorphism_Demo2
 {
-    public abstract class Payment
+    public  class Payment
     {
-        public abstract void Pay(decimal amount);
+        public virtual void Pay(decimal amount)
+        {
+            Console.WriteLine("Payment is Processing..");
+        }
     }
 
 }

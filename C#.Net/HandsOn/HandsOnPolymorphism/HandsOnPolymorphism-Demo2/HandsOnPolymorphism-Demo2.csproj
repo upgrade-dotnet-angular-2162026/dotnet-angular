@@ -6,6 +6,7 @@
     <RootNamespace>HandsOnPolymorphism_Demo2</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <StartupObject>HandsOnPolymorphism_Demo2.Program</StartupObject>
   </PropertyGroup>
 
 </Project>
