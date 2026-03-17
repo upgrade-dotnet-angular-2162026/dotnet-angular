@@ -62,6 +62,8 @@ namespace HandsOnInterfaces_Demo1
     {
         static void Main()
         {
+            
+            
             // Loose Coupling: depend on interface, not concrete class
             IProductRepository productRepo = new ProductRepository();
 
