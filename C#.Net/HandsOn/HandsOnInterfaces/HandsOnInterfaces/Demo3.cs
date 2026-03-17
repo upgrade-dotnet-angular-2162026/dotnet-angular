@@ -39,6 +39,7 @@ namespace HandsOnInterfaces_Demo3
     public class Checkout
     {
         private readonly IPayment _payment;
+       
 
         // Dependency Injection of IPayment
         public Checkout(IPayment payment)
