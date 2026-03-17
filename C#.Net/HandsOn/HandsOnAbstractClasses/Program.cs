@@ -5,7 +5,7 @@
         public abstract double Area(); // Abstract method for area calculation
         public void DisplayArea()
         {
-            Console.WriteLine($"The area is: {Area()}");
+            Console.WriteLine($"The area of {this.GetType().Name} is: {Area()}");
         }
     }
     class Circle : Shape

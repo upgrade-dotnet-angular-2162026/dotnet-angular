@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HandsOnExceptionHandling.CustomExceptions
 {
-    public class PaymentException : ECommerceException
+    public class PaymentException : Exception
     {
         public PaymentException(string message) : base(message) { }
     }

@@ -30,10 +30,14 @@ namespace HandsOnExceptionHandling_Demo8
 
             try
             {
-                //service.ReserveItem(2, 5); // triggers InventoryException
-                service.ProcessPayment(false);
+                service.ReserveItem(2, 5); // triggers InventoryException
+                //service.ProcessPayment(false);
             }
-            catch (ECommerceException ex) // catch all custom exceptions
+            catch (PaymentException ex) // catch all custom exceptions
+            {
+                Console.WriteLine($"E-commerce error: {ex.Message}");
+            }
+            catch (InventoryException ex) // catch all custom exceptions
             {
                 Console.WriteLine($"E-commerce error: {ex.Message}");
             }

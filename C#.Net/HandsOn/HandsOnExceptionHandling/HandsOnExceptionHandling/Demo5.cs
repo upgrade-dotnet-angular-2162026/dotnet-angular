@@ -43,8 +43,8 @@ namespace HandsOnExceptionHandling_Demo5
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Outer: {ex.Message}");
-                Console.WriteLine($"Inner: {ex.InnerException?.Message}");
+                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Reason: {ex.InnerException?.Message}");
             }
         }
     }

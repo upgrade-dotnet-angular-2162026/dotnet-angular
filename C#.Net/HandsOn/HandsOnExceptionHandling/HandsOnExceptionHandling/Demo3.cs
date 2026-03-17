@@ -29,7 +29,7 @@ namespace HandsOnExceptionHandling_Demo3
             try
             {
                 var account = new BankAccount();
-                account.Withdraw(10000);
+                account.Withdraw(-10000);
             }
             catch (InvalidOperationException ex)
             {
@@ -38,6 +38,10 @@ namespace HandsOnExceptionHandling_Demo3
             catch(ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
 
         }

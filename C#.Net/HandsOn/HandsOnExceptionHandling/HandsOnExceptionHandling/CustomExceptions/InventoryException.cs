@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HandsOnExceptionHandling.CustomExceptions
 {
-    public class InventoryException : ECommerceException
+    public class InventoryException : Exception
     {
         public InventoryException(string message) : base(message) { }
     }

@@ -14,31 +14,48 @@ namespace HandsOnAbstractClasses
             Name = name;
         }
         public abstract void CalculateSalary(); // Abstract method to calculate salary
-        public  void DisplayInfo()
+        public void DisplayInfo()
         {
             Console.WriteLine($"Employee Name: {Name}");
         }
     }
-    class Manager:Employee
+    class Manager : Employee
     {
         public double Bonus { get; set; }
-        public Manager(string name,double bonus) : base(name) {
-        Bonus = bonus; // Initialize bonus for the manager
+        public Manager(string name, double bonus) : base(name)
+        {
+            Bonus = bonus; // Initialize bonus for the manager
         }
         public override void CalculateSalary()
         {
             Console.WriteLine($"{Name} is a Manager. Salary includes a monthly bonous of {Bonus}");
         }
-       
+
+    }
+    class Developer : Employee
+    {
+        public Developer(string name) : base(name)
+        {
+
+        }
+        public override void CalculateSalary()
+        {
+            Console.WriteLine($"{Name} credited the salary without any bonus");
+        }
     }
     internal class Demo1
     {
         static void Main()
         {
             // Create an instance of Manager
-                Employee manager = new Manager("Alice",5000);
-                manager.DisplayInfo(); // Display employee info
-                manager.CalculateSalary(); // Calculate salary for the manager
+            Employee employee = null;
+            employee = new Manager("Alice", 5000);
+            employee.DisplayInfo(); // Display employee info
+            employee.CalculateSalary(); // Calculate salary for the manager
+            Console.WriteLine();
+            employee = new Developer("Mic");
+            employee.DisplayInfo();
+            employee.CalculateSalary();
         }
     }
 }
