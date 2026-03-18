@@ -38,6 +38,7 @@ namespace HandsOnInterfaces_Demo3
     //Checkout Class (Depends on Interface, Not Implementation)
     public class Checkout
     {
+        //loose coupling
         private readonly IPayment _payment;
         //UPIPayment _upi = new UPIPayment(); //tight coupling
 
