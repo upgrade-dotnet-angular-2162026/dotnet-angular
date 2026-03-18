@@ -18,10 +18,14 @@ When to use: When you need an ordered collection that allows duplicates and fast
     {
         static void Main()
         {
+            //initiate List to strore string values
             List<string> students = new List<string>();
+            List<int> numbers = new List<int>() { 12, 23, 34, 45, 4, 5 };//collection initializer
+            //add items to List
             students.Add("Alice");
             students.Add("Bob");
             students.Add("Charlie");
+            students.Insert(2, "John");
 
             // Access by index
             Console.WriteLine(students[1]); // Bob
@@ -31,28 +35,13 @@ When to use: When you need an ordered collection that allows duplicates and fast
             {
                 Console.WriteLine(student);
             }
-
-            List<Student> studentsList = new List<Student> //collection initializer
-        {
-            new Student { Id = 1, Name = "Alice", Marks = 85 },
-            new Student { Id = 2, Name = "Bob", Marks = 90 }
-        };
-
-            studentsList.Add(new Student { Id = 3, Name = "Charlie", Marks = 70 });
-            studentsList.Insert(1, new Student { Id = 4, Name = "David", Marks = 88 });
-
-            Console.WriteLine("All Students:");
-            studentsList.ForEach(s => Console.WriteLine(s));
-
-            // Find first matching student
-            var topper = studentsList.Find(s => s.Marks > 85);
-            Console.WriteLine($"\nTopper Found: {topper}");
-
-            // Remove a student
-            studentsList.RemoveAll(s => s.Name == "Charlie");
-
-            Console.WriteLine("\nAfter Removal:");
-            students.ForEach(s => Console.WriteLine(s));
+            //remove item
+            //students.Remove("Bob");
+            //students.RemoveAt(1); //pass index
+            //students.Clear(); //removeall the items
+            //sort items
+            students.Sort();
+           
         }
     }
 

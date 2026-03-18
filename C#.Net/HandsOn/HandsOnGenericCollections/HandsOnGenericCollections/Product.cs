@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace HandsOnGenericCollections
 {
-    public class Student
+    internal class Product
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public double Marks { get; set; }
-
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public string Description { get; set; }
         public override string ToString()
         {
-            return $"ID: {Id}, Name: " +
-                $"{Name}, Marks: {Marks}";
+            return $"Id:{Id} Name:{Name} Price:{Price} Description:{Description}";
         }
     }
-
 }
