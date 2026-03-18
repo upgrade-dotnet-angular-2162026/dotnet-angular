@@ -14,7 +14,7 @@ namespace HandsOnNullableTypes
             bool? isAvailable = false;
             Console.WriteLine("Hello, World!");
             int? age=null;
-            age = 90;
+            //age = 90;
             if (age.HasValue)
             {
                 Console.WriteLine($"Age is {age.Value}");
@@ -29,6 +29,9 @@ namespace HandsOnNullableTypes
             //use null-coalescing operation:
             int displayedAge = age ?? 10;
             Console.WriteLine(displayedAge);
+            string? name = "Rohan";
+            Console.WriteLine(name?.Length); //returns null when name is null or else retuns length
+            Console.WriteLine(name!.Length);
 
         }
     }
