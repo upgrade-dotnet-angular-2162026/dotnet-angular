@@ -18,12 +18,13 @@ When to use: When you want to process items in the order they arrive (like a wai
         static void Main()
         {
             Queue<string> tasks = new Queue<string>();
+            //Add items to the Queue
             tasks.Enqueue("Task1");
             tasks.Enqueue("Task2");
             tasks.Enqueue("Task3");
 
-            Console.WriteLine(tasks.Dequeue()); // Task1 (first in)
-            Console.WriteLine(tasks.Peek());   // Task2 (next but not removed)
+            Console.WriteLine(tasks.Dequeue()); // Task1 (first in) //remove items
+            Console.WriteLine(tasks.Peek());   // Retrun 1st item
 
             Queue<Student> studentQueue = new Queue<Student>();
 

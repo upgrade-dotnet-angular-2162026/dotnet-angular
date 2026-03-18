@@ -23,6 +23,8 @@ When to use: When you need fast insertions/removals at beginning or middle, but 
             playlist.AddLast("Song1");
             playlist.AddLast("Song2");
             playlist.AddFirst("Intro Song");
+            var node = playlist.Find("Song1");
+            Console.WriteLine(node.Next.Value);
 
             foreach (var song in playlist)
             {
@@ -41,10 +43,7 @@ When to use: When you need fast insertions/removals at beginning or middle, but 
                 Console.WriteLine(s);
             }
 
-            // Find & insert after
-            var node = studentList.Find(new Student { Id = 1, Name = "Alice", Marks = 85 });
-            // This will not work unless you provide custom equality
-            // Instead, you’d iterate and find manually by Id
+           
         }
     }
 

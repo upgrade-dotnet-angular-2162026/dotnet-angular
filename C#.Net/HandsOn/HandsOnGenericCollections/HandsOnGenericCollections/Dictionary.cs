@@ -39,21 +39,17 @@ namespace HandsOnGenericCollections_Dictionary
             studentDict.Add(1, new Student { Id = 1, Name = "Alice", Marks = 85 });
             studentDict[2] = new Student { Id = 2, Name = "Bob", Marks = 90 };
 
-            // Retrieve by key
-            if (studentDict.TryGetValue(2, out Student s))
-            {
-                Console.WriteLine($"Found: {s}");
-            }
+           
             Student ss = studentDict[1];
 
             // Iterate
-            foreach (var kv in studentDict)
+            foreach (KeyValuePair<int,Student> kv in studentDict)
             {
                 Console.WriteLine($"Key: {kv.Key}, Value: {kv.Value}");
             }
 
             // Remove
-            studentDict.Remove(1);
+            studentDict.Remove(1); //remove the pair using key
         }
     }
 

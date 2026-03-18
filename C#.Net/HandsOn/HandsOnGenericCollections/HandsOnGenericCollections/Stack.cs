@@ -21,7 +21,7 @@ When to use: When you need reverse order processing (undo operations, parsing ex
             history.Push("Page2");
             history.Push("Page3");
 
-            Console.WriteLine(history.Pop());  // Page3 (last in, first out)
+            //Console.WriteLine(history.Pop());  // Page3 (last in, first out)
             Console.WriteLine(history.Peek()); // Page2 (top element, not removed)
 
             Stack<Student> studentStack = new Stack<Student>();
