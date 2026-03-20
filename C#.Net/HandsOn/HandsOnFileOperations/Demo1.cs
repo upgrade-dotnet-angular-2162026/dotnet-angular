@@ -48,8 +48,8 @@ namespace HandsOnFileOperations
         {
             try
             {
-                //Read(@"D:\\CTS\\Batch-Angular\\Week-4\1.txt");
-                Write(@"D:\\CTS\\Batch-Angular\\Week-4\3.txt");
+               // Read(@"D:\abc.txt");
+                Write(@"D:\\3.txt");
             }
             catch (Exception ex)
             {

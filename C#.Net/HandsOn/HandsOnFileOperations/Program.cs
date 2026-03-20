@@ -3,12 +3,12 @@ namespace HandsOnFileOperations
 {
     internal class Program
     {
-        static void Read(string path)
+        static void Read(string ?path)
         {
             try
             {
                 StreamReader streamReader = new StreamReader(path);
-                string content = streamReader.ReadToEnd(); //Read the file
+                string ?content = streamReader.ReadToEnd(); //Read the file
                 Console.WriteLine(content);
             }
             catch (IOException)
@@ -21,12 +21,13 @@ namespace HandsOnFileOperations
         {
             try
             {
-                string content = "All glitters are not Gold!!!";
-                //string content = "Good Morning Users";
+               string content = "All glitters are not Gold!!!";
+               // string content = "Good Morning Users";
                 //using block automaticly close/dispose the objects
-                using (StreamWriter streamWriter = new StreamWriter(path, true))
+                using (StreamWriter streamWriter = new StreamWriter(path,true))
                 {
                     streamWriter.WriteLine(content); //content added to file
+                   // streamWriter.Dispose(); //to dispose the object
 
                 }
             }
@@ -48,7 +49,7 @@ namespace HandsOnFileOperations
                 };
                 foreach (var item in students)
                 {
-                    using (StreamWriter streamWriter = new StreamWriter(path, true))
+                    using (StreamWriter streamWriter = new StreamWriter(path))
                     {
                         streamWriter.WriteLine(item); //content added to file
 
@@ -66,12 +67,12 @@ namespace HandsOnFileOperations
         {
             try
             {
+                //Read(@"D:\CTS(2-16-2026)\dotnet-angular\C#.Net\HandsOn\HandsOnArrays\Demo1.cs");
                 Console.WriteLine("Enter File Path");
-                string path = Console.ReadLine();
-                //Read(@"D:\CTS\Batch-Angular\Week-3\Collections1.txt");
-                //Read(path);
-                //Write(path);
-                WriteObjets(path);
+                string ?path = Console.ReadLine();
+                Read(path);
+               // Write(path);
+                //WriteObjets(path);
             }
             catch (Exception ex)
             {

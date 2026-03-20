@@ -13,7 +13,8 @@ namespace HandsOnFileOperations
         public int Age { get; set; }
         public override string ToString()
         {
-            return $"Id:{Id} Name:{Name} Age:{Age}";
+            return $"Id:{Id} Name:{Name} " +
+                $"Age:{Age}";
         }
     }
 }
