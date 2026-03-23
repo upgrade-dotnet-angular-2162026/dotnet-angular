@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HandsOnLinq
 {
-    public record Student(int id,string name);
-    public record Enroll(int id,string course);
-    public record StudentEnroll(int id,string name,string course);
+    public record Student(int studentId,string name);
+    public record Enroll(int studentId, string course);
+    public record StudentEnroll(int studentId, string name,string course);
     internal class Demo6
     {
         static void Main()
@@ -31,10 +31,23 @@ namespace HandsOnLinq
             //Joining 2 data source
             var result = from student in students
                          join enroll in enrolls
-                         on student.id equals enroll.id
-                         select new StudentEnroll(student.id, student.name, enroll.course);
+                         on student.studentId equals enroll.studentId
+                         select new StudentEnroll(student.studentId, student.name, enroll.course);
             foreach(var item in result)
-                Console.WriteLine($"Id:{item.id} Name:{item.name} course:{item.course}");
+                Console.WriteLine($"Id:{item.studentId} Name:{item.name} course:{item.course}");
+            //grouping data
+            //grouing the coursed by student name
+            var groupresult = from item in result
+                              group item by item.name;
+            foreach(var item in groupresult)
+            {
+                Console.WriteLine("Courses Entrolled by " + item.Key+" and Count "+item.Count()); //key return group by prop value
+                foreach(var e in item)
+                {
+                    Console.WriteLine(e.course);
+                }
+            }
+
         }
     }
 }

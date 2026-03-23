@@ -13,7 +13,7 @@ namespace HandsOnMultiThreading
                 for(byte b=0;b<=255;b++)
             {
                 Console.Write(b + " ");
-                Thread.Sleep(500);// Simulate work by sleeping for 500 milliseconds
+                Thread.Sleep(1000);// Simulate work by sleeping for 500 milliseconds
             }
         }
         public static void Task2() //Printing characters from 0 to 255
@@ -21,7 +21,7 @@ namespace HandsOnMultiThreading
             for(byte b=0;b<=255;b++)
             {
                 Console.WriteLine(Convert.ToChar(b));
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
             }
         }
     }
@@ -29,6 +29,8 @@ namespace HandsOnMultiThreading
     {
         static void Main()
         {
+            //Demo1.Task1();
+            //Demo1.Task2();
             Thread t1 = new Thread(Demo1.Task1);
             Thread t2 = new Thread(Demo1.Task2);
             t1.Start();

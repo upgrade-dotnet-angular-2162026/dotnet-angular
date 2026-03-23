@@ -8,7 +8,7 @@ namespace HandsOnMultiThreading
 {
     internal class Demo5
     {
-        int counter = 0;
+        int counter = 0;//instance variable
 
         public void Increment()
         {

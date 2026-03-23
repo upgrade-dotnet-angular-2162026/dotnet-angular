@@ -20,6 +20,7 @@ namespace HandsOnLinq
             List<int> ints = numbers.Where(x => x > 50).ToList();
             int[] arry = numbers.Where(x => x > 50).ToArray();
             int count = numbers.Where(x => x > 50).Count();
+            Console.WriteLine(count);
             int max = numbers.Where(x => x > 50).Max();
             int min = numbers.Where(x => x > 50).Min();
             int sum = numbers.Where(x => x > 50).Sum();

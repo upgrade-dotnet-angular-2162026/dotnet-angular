@@ -14,7 +14,7 @@ namespace HandsOnMultiThreading
         }
         static void Main()
         {
-            Thread t1 = new Thread(new ParameterizedThreadStart(Greet));
+            Thread t1 = new Thread(Greet);
             t1.Start("Sachin");
         }
     }

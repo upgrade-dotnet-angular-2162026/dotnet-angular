@@ -40,7 +40,7 @@ namespace HandsOnMultiThreading
                 Demo4 ob = new Demo4();
                 Thread t = new Thread(ob.Task);
                 t.Start();
-                t.Join(500);
+                t.Join(1000);//Join() hault other threads to wait for given time
                 Console.WriteLine("Main Thread is Running..");
             }
             catch (Exception ex)

@@ -7,12 +7,30 @@ using System.Threading.Tasks;
 
 namespace HandsOnLinq
 {
+    //Data Model
+    //public class Employee
+    //{
+    //    public Employee(int id, string name, string description, DateTime joinDate)
+    //    {
+    //        Id = id;
+    //        Name = name;
+    //        Description = description;
+    //        JoinDate = joinDate;
+    //    }
+
+    //    public int Id { get; set; }
+    //    public string Name { get; set; }
+    //    public string Description { get; set; }
+    //    public DateTime JoinDate { get; set; }
+    //}
+
     public record Employee(int Id, string Name, string Designation, DateTime JoinDate, double Salary, string Project);
     public record EmployeeDTO(int Id,string Name);
     internal class Demo2
     {
         static void Main()
         {
+            var emp = new Employee(1, "Vikas", "Programmer", new DateTime(2025, 12, 23), 45000, "HealthCare");
             List<Employee> list = new List<Employee>()
             {
                 new Employee(4456,"Shivas","Programmer",DateTime.Parse("3.12.2025"),45000,"Ecomm"),
@@ -34,21 +52,26 @@ namespace HandsOnLinq
             {
                 Console.WriteLine(e);
             }
+            Employee emp1 = (from e in list
+                            where e.Id == 4456
+                            select e).SingleOrDefault(); //use SingleOrDefault() when your expression return 0 or 1 record
+            Console.WriteLine(emp1.Name);
             var employee=(from e in list
                           where e.Id==4456
                           select e).Single(); //Single() used when expression return 1 record
             //throws exception when expression return 0 or more records
             Console.WriteLine(employee);
-            
+             employee = (from e in list
+                            where e.Project == "Ecomm"
+                            select e).Single();
+            Console.WriteLine(employee);
             //return null to the result when expression retunr 0 records
             employee = (from e in list
                         where e.Id == 4459
                         select e).SingleOrDefault(); //here employee is null
             employee = (from e in list
-                        where e.Id == 4459
-                        select e).SingleOrDefault() ??
-                        new Employee(2134, "Bhavani", "Sr Programmer", DateTime.Parse("5.30.2020"), 65000, "HelathCar");
-            Console.WriteLine(employee);
+                        where e.Project == "Ecomm"
+                        select e).FirstOrDefault(); //return 1st record in the sequence
             //retunr employees working as TeamLead
             var result1 = from e in list
                           where e.Designation == "TeamLead"
@@ -61,6 +84,7 @@ namespace HandsOnLinq
             List<Employee> employees1= (from e in list
                                         where e.Designation == "TeamLead"
                                         select e).ToList();
+
             //return first record in the sequence
             Employee employee1 = (from e in list
                                   where e.Designation == "TeamLead"
@@ -79,7 +103,7 @@ namespace HandsOnLinq
                            where e.Project=="Ecomm"
                            select new { e.Id,e.Name});
             foreach(var item in result2)
-                Console.WriteLine(item);
+                Console.WriteLine(item.Id+" "+item.Name);
             //return required props from the object in the form of DTO type
 
             var result3= (from e in list
