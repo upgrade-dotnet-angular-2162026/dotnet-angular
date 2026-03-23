@@ -21,12 +21,13 @@ namespace HandsOnPatternMatchingEnhancements
             };
             Console.WriteLine(result);
             //Type Pattern in switch
-            object obj = 123;
+            object obj = 123.34;
             string description = obj switch
             {
                 int n => $"Integer:{obj}",
                 string s => $"String:{obj}",
                 null => "null value",
+                double=>$"double value:{obj}",
                 _=>"other type"
             };
             Console.WriteLine($"{description}");

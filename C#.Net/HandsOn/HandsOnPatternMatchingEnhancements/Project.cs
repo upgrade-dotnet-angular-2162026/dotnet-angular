@@ -19,7 +19,7 @@ namespace HandsOnPatternMatchingEnhancements
             {
                 Circle c => Math.PI * c.radius * c.radius,
                 Rectangle r => r.height * r.width,
-                Square s => 4 * s.side,
+                Square s => s.side * s.side,
                 Triangle t when t.Base > 0 && t.height > 0 => 0.5 * t.Base * t.height,
                 _ =>throw new Exception("Invalid Shpae")
             };
