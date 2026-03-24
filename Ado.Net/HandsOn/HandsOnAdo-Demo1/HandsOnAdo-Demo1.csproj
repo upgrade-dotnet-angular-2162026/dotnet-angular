@@ -6,7 +6,7 @@
     <RootNamespace>HandsOnAdo_Demo1</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>HandsOnAdo_Demo1.Repositories.Test_Employee</StartupObject>
+    <StartupObject>HandsOnAdo_Demo1.Demo4</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
