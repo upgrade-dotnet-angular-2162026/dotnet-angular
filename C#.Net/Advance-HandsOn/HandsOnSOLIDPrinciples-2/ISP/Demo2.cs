@@ -46,11 +46,11 @@ namespace HandsOnSOLIDPrinciples.ISP
             void AddToCart();
         }
 
-        public interface IPayment
+        public interface IOnlineOrder
         {
             void CCProcess();
         }
-        public class OnlineOrder : IOrder, IPayment
+        public class OnlineOrder : IOrder, IOnlineOrder
         {
             public void AddToCart()
             {
@@ -62,14 +62,13 @@ namespace HandsOnSOLIDPrinciples.ISP
                 //process through credit card
             }
         }
-        public class OfflineOrder : IPayment
+        public class OfflineOrder : IOrder
         {
-
-            #endregion
-            public void CCProcess()
+            public void AddToCart()
             {
-               //Process throuth credit card
+                //Do Add to Cart
             }
+            #endregion
         }
     }
 }

@@ -12,10 +12,17 @@ namespace HandsOnAdo_Demo1.Repositories
         string connectionString = "Data Source=DESKTOP-4O1D65I\\SQLEXPRESS;Initial Catalog=bankDb;Integrated Security=True;Trust Server Certificate=True";
         public EmployeeRepository()
         {
-            connection = new SqlConnection(connectionString);
+            connection = new SqlConnection(connectionString);//initiated connection object
         }
         private SqlCommand? command = null;
         private string? qry = null;
+        /// <summary>
+        /// Adding new employee detals to backend table
+        /// </summary>
+        /// <param name="employeeDataModel">
+        /// expected employee deatils in employeeDataModelObject
+        /// </param>
+        /// <returns>returns void</returns>
         public void AddEmployee(EmployeeDataModel employeeDataModel)
         {
             try
