@@ -1,0 +1,6 @@
+1. Passing Data from action method to view
+a.ViewData object
+//assign value to ViewData
+ViewData["key"]=value;
+//read ViewData value
+<h1>@ViewData["key"]</h1>
