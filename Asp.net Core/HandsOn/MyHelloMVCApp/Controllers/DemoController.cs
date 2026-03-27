@@ -17,7 +17,8 @@ namespace MyHelloMVCApp.Controllers
         }
         public IActionResult LoadData()
         {
-            ViewData["flowers"] = new List<string> { "Rose", "Lilly", "Jasmie" };
+            ViewData["flowers"] = new List<string> 
+            { "Rose", "Lilly", "Jasmie" };
             return View();
         }
     }

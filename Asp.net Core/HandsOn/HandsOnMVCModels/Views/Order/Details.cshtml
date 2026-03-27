@@ -1,0 +1,21 @@
+﻿@model HandsOnMVCModels.Models.Order
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    @if (Model != null)
+    {
+        <h1>Order @Model.OrderId Details</h1>
+        <pre>
+            Customer: @Model.CustomerId
+            Total Price:@Model.TotalPrice
+            OrderDate: @Model.OrderDate
+        </pre>
+    }
+    else
+    {
+        <h3>Invaid OrderId</h3>
+    }
+</div>
+
