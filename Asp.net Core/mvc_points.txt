@@ -4,3 +4,14 @@ a.ViewData object
 ViewData["key"]=value;
 //read ViewData value
 <h1>@ViewData["key"]</h1>
+b. ViewBag
+ViewBag is a dynamic property object and it make use of dymanic features
+//set value
+ViewBag.cities=new string[]{"Pune","Mubmai"}
+ViewBag.Designation="TeamLeader"
+//read value
+var cities=ViewBag.Cities
+string desig=ViewBag.Designation
+Note: the scope of ViewData and ViewBag is only corresponds the same action method
+c. TempData
+TempData is used to passing data from one controller action method to another controller action method
