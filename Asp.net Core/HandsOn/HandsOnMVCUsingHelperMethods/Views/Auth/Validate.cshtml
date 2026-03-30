@@ -1,0 +1,41 @@
+﻿@model Login
+@{
+    ViewData["Title"] = "Validate";
+}
+
+<div class="container">
+    @using(Html.BeginForm("Validate"))
+    {
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>
+                    @Html.TextBoxFor(m => m.Username)
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    @Html.PasswordFor(m => m.Password)
+                </td>
+            </tr>
+            <tr>
+                <td>Enter Captcha</td>
+                <td>
+                    @Html.EditorFor(m => m.EnterCaptch)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Login" />
+                </td>
+            </tr>
+            <tr>
+                <td icon="2">
+                    <span class="text-danger">@ViewBag.ErrorMsg</span>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
