@@ -17,15 +17,23 @@ namespace HandsOnMVCUsingHelperMethods.Controllers
         [HttpPost]
         public IActionResult Validate(Login login)
         {
-            if (login.Username == "Admin" && login.Password == "12345")
+            //ModelState used to Validate the Model passed as parameter
+            if (ModelState.IsValid)
             {
-                ViewBag.ErrorMsg = "Valid Credentials";
+                if (login.Username == "Admin" && login.Password == "12345")
+                {
+                    ViewBag.ErrorMsg = "Valid Credentials";
+                }
+                else
+                {
+                    ViewBag.ErrorMsg = "Invaldi Credentials";
+                }
+                return View(); //return to same View
             }
             else
             {
-                ViewBag.ErrorMsg = "Invaldi Credentials";
+                return View(); //Retrun to the same view when validation fails
             }
-            return View(); //return to same View
         }
     }
 }

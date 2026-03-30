@@ -10,24 +10,28 @@
                <td>Id</td>
                <td>
                    <input type="number" asp-for="Id" class="form-control" />
+                   <span asp-validation-for="Id" class="text-danger"></span>
                </td>
            </tr>
             <tr>
                 <td>Name</td>
                 <td>
                     <input type="text" asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
                 <td>Email</td>
                 <td>
                     <input type="text" asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
                 <td>Mobile</td>
                 <td>
                     <input type="text" asp-for="Mobile" class="form-control" />
+                    <span asp-validation-for="Mobile" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
@@ -40,18 +44,21 @@
                 <td>Experience</td>
                 <td>
                     <input type="text" asp-for="Exp" class="form-control" />
+                    <span asp-validation-for="Exp" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td>
-                    <input type="text" asp-for="Password" class="form-control" />
+                    <input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </td>
             </tr>
             <tr>
                 <td>Confirm Password</td>
                 <td>
-                    <input type="text" asp-for="ConfirmPassword" class="form-control" />
+                    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </td>
             </tr>
             <tr>

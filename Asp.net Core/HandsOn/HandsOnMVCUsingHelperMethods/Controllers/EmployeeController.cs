@@ -16,8 +16,15 @@ namespace HandsOnMVCUsingHelperMethods.Controllers
         [HttpPost]
         public IActionResult Create(Employee employee)
         {
-            //add employee details to the db
-            return Json(employee);
+            if (ModelState.IsValid)
+            {
+                //add employee details to the db
+                return Json(employee);
+            }
+            else
+            {
+                return View();
+            }
         }
              
     }
