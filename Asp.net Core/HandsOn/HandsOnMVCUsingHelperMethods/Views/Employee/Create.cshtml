@@ -1,0 +1,65 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+   <form asp-action="Create" method="post">
+       <table class="table">
+           <tr>
+               <td>Id</td>
+               <td>
+                   <input type="number" asp-for="Id" class="form-control" />
+               </td>
+           </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" asp-for="Name" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" asp-for="Email" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Mobile</td>
+                <td>
+                    <input type="text" asp-for="Mobile" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td>
+                    <input type="number" asp-for="Salary" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Experience</td>
+                <td>
+                    <input type="text" asp-for="Exp" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="text" asp-for="Password" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td>
+                    <input type="text" asp-for="ConfirmPassword" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="SignUp" />
+                </td>
+            </tr>
+       </table>
+   </form>
+</div>
+
