@@ -2,13 +2,14 @@
 
 namespace HandsOnRouting.Controllers
 {
+    [Route("[controller]")]
     public class StudentController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
-        [Route("Student/GetStudent/{id:int}")]
+        [Route("GetStudent/{id:int}")]
         public IActionResult Details(int Id)
         {
             return View();
@@ -22,7 +23,8 @@ namespace HandsOnRouting.Controllers
         {
             return View();  
         }
-        public IActionResult Delete(int Id)
+        [Route("Delete/{classId}/Student/{studentId}")]
+        public IActionResult Delete(string classId,int studentId)
         {
             return View();
         }

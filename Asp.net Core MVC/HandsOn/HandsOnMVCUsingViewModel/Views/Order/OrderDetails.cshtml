@@ -1,0 +1,19 @@
+﻿@model HandsOnMVCUsingViewModel.ViewModel.ProductOrderVM
+
+@{
+    ViewData["Title"] = "OrderDetails";
+}
+
+<div class="container">
+    <h1>OrderDetails</h1>
+    <pre>
+        Name:@Model.Name
+        Price:@Model.Price
+        OrderId:@Model.OrderId
+        OrderDate:@Model.OrderDate
+        Qty:@Model.Qty
+        Total:@Model.TotalPrice
+    </pre>
+</div>
+
+
