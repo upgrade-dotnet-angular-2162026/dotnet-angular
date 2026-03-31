@@ -35,7 +35,9 @@ namespace HandsOnMVCUsingViewModel.Controllers
                 Qty = order.Qty,
                 OrderDate = order.OrderDate,
                 TotalPrice = order.TotalPrice,
-                Price = product.Price
+                Price = product.Price,
+                DeliverDate = order.OrderDate.AddDays(3)
+
             };
             return View(productOrderVM);
         }
