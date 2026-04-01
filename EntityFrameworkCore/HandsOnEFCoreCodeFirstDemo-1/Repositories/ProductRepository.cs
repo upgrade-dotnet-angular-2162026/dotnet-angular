@@ -56,6 +56,12 @@ namespace HandsOnEFCoreCodeFirstDemo_1.Repositories
             appContext.Products.Remove(product);
             appContext.SaveChanges();
         }
+        public void DeleteProductUsingId(int productId)
+        {
+            var product= appContext.Products.SingleOrDefault(p => p.Id == productId);
+            appContext.Products.Remove(product);
+            appContext.SaveChanges();
+        }
         //Edit Product
         public void EditProduct(Product product) //here product object contain updated object details
         {

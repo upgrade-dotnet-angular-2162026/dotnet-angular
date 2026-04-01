@@ -44,9 +44,10 @@ namespace HandsOnEFCoreCodeFirstDemo_1
                 product.Price = 900;
                 productRepository.EditProduct(product);
                 Console.WriteLine();
-                //delete record
+                //delete product record
                 product= productRepository.GetProduct(3);
                 productRepository.DeleteProduct(product);
+                productRepository.DeleteProductUsingId(2);
             }
             catch (Exception ex)
             {
