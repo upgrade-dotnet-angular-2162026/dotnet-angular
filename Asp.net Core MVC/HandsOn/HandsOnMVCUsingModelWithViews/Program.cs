@@ -1,3 +1,5 @@
+using HandsOnMVCUsingModelWithViews.Repositories;
+
 namespace HandsOnMVCUsingModelWithViews
 {
     public class Program
@@ -8,7 +10,7 @@ namespace HandsOnMVCUsingModelWithViews
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddSingleton<IBookRepository,BookRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

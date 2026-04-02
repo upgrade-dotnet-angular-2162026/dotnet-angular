@@ -9,7 +9,7 @@ namespace HandsOnMVCUsingModelWithViews.Repositories
     }
     public class BookRepository : IBookRepository
     {
-        private static List<Book> books = new List<Book>()
+        private  List<Book> books = new List<Book>()
         {
             new Book(){Id=324093,Title="Asp.net Core 10.0",Author="Microsoft",Price=2300}
         };

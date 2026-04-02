@@ -7,9 +7,14 @@ namespace HandsOnMVCUsingEFCore.Controllers
     public class BookController : Controller
     {
         private readonly BookRepository _repo;
-        public BookController()
+        //public BookController()
+        //{
+        //    _repo=new BookRepository();
+        //}
+        //created BookRepository object using DI
+        public BookController(BookRepository repo)
         {
-            _repo=new BookRepository();
+            _repo = repo;
         }
         [Route("Books/GetAllBooks")]
         public IActionResult Index()

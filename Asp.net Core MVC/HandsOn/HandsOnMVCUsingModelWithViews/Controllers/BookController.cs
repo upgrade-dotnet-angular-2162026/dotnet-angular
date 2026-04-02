@@ -6,9 +6,14 @@ namespace HandsOnMVCUsingModelWithViews.Controllers
     public class BookController : Controller
     {
         private IBookRepository bookRepository;
-        public BookController()
+        //public BookController()
+        //{
+        //    bookRepository= new BookRepository();
+        //}
+        //Initiate bookRepository using DI
+        public BookController(IBookRepository bookRepository)
         {
-            bookRepository= new BookRepository();
+            this.bookRepository= bookRepository;
         }
         //show the book details
         public IActionResult Index()
