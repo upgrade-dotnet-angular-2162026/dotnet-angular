@@ -12,6 +12,11 @@
     class ShowRoom
     {
         Car c;
+
+        //public ShowRoom()
+        //{
+        //    c = new Car();
+        //}
         //Constructor Injection
         public ShowRoom(Car c)
         {
