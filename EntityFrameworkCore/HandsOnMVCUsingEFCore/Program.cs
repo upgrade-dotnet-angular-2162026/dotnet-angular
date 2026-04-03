@@ -13,6 +13,7 @@ namespace HandsOnMVCUsingEFCore
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             //builder.Services.AddDbContext<AppDBContext>();
+            //get the connection string value from appsettings.json/asspsetting.development.json
             var connection = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<AppDBContext>(options=>options.UseSqlServer(connection));
             builder.Services.AddScoped<BookRepository>();
