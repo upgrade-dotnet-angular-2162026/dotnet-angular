@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ECart.BAL/ECart.BAL.csproj" />
+  <Project Path="ECart.DAL/ECart.DAL.csproj" />
+  <Project Path="ECart.MVC/ECart.MVC.csproj" />
+</Solution>
