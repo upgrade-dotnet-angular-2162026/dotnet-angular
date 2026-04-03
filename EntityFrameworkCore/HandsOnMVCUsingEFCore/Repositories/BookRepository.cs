@@ -6,10 +6,17 @@ namespace HandsOnMVCUsingEFCore.Repositories
     public class BookRepository
     {
         private readonly AppDBContext _context;
-        public BookRepository()
+        //Initiate Context object using DI
+        public BookRepository(AppDBContext context)
         {
-            _context= new AppDBContext();
+            _context = context;
         }
+
+        //public BookRepository()
+        //{
+        //    _context= new AppDBContext();
+        //}
+
         public void AddBook(Book book)
         {
             _context.Books.Add(book);
