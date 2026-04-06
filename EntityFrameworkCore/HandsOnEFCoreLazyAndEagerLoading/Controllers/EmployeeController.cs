@@ -15,6 +15,13 @@ namespace HandsOnEFCoreLazyAndEagerLoading.Controllers
         {
             _context = context;
         }
+        [HttpGet("GetEmployees")]
+        public async Task<IActionResult> GetEmployees()
+        {
+            var data = await _context.Employees
+                                    .ToListAsync();
+            return Ok(data);
+        }
 
         // Get employees with department (Eager)
         [HttpGet("eager")]

@@ -17,34 +17,38 @@ namespace HandsOnEFCoreLazyAndEagerLoading.Controllers
         {
             _context = context;
         }
-
+        [HttpGet("GetDepts")]
+        public async Task<IActionResult> GetDepts()
+        {
+            var data=await _context.Departments.
+                ToListAsync();
+            return Ok(data);
+        }
         // Get all departments with employees (Eager Loading)
         [HttpGet("eager")]
         public async Task<IActionResult> GetDepartmentsEager()
         {
-            var data = await _context.Departments
-                                     .Include(d => d.Employees)
-                                     .ToListAsync();
             //var data = await _context.Departments
-            //                        .ThenInclude(d => d.Employees)
-            //                        .ToListAsync();
-            return Ok(data);
-    //        var departments = await _context.Departments
-    //.Include(d => d.Employees)
-    //.Select(d => new DepartmentDto
-    //{
-    //    DepartmentId = d.DepartmentId,
-    //    Name = d.Name,
-    //    Employees = d.Employees.Select(e => new EmployeeDto
-    //    {
-    //        EmployeeId = e.EmployeeId,
-    //        FullName = e.FullName
-    //    }).ToList()
-    //})
-    //.ToListAsync();
+            //                         .Include(d => d.Employees)
+            //                         .ToListAsync();
 
-    //        return Ok(departments);
-           
+            //return Ok(data);
+            var departments = await _context.Departments
+    .Include(d => d.Employees)
+    .Select(d => new DepartmentDto
+    {
+        DepartmentId = d.DepartmentId,
+        Name = d.Name,
+        Employees = d.Employees.Select(e => new EmployeeDto
+        {
+            EmployeeId = e.EmployeeId,
+            FullName = e.FullName
+        }).ToList()
+    })
+    .ToListAsync();
+
+            return Ok(departments);
+
         }
 
         // Lazy loading version

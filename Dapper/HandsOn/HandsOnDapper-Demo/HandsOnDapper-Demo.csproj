@@ -6,7 +6,7 @@
     <RootNamespace>HandsOnDapper_Demo</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>HandsOnDapper_Demo.MovieClient</StartupObject>
+    <StartupObject>HandsOnDapper_Demo.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
