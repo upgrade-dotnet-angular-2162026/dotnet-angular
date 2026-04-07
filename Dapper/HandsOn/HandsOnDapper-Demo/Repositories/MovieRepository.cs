@@ -26,7 +26,8 @@ namespace HandsOnEFCodeFirst_Demo2.Repositories
 
         public async Task DeleteMovieAsync(int movieId)
         {
-            string qry = "Delete From Movies where MovieId=@MovieId";
+            string qry = "Delete From Movies where MovieId=@MovieId"; //Parametarized query
+            //string qry = $"Delete From Movies where MovieId={movieId}"; //compiled query
             await db.ExecuteAsync(qry, movieId);
         }
 
@@ -39,7 +40,12 @@ namespace HandsOnEFCodeFirst_Demo2.Repositories
         {
             return await db.QuerySingleOrDefaultAsync<Movie>("Select * from Movies where MovieId=@MovieId", new { MovieId = movieId }); // Find a movie by its ID
         }
-  
+
+        public async Task<Movie?> GetMovieByTitleAsync(string title)
+        {
+            return await db.QuerySingleOrDefaultAsync<Movie>("Select * from Movies where Title=@Title", new { Title = title });
+        }
+
         public async Task UpdateMovieAsync(Movie movie)
         {
            await db.ExecuteAsync("Update Movies set Title=@Title,Director=@Director,ReleaseDate=@ReleaseDate,Genre=@Genre,Rating=@Rating where MovieId=@MovieId", movie); // Update an existing movie

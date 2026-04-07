@@ -21,6 +21,7 @@ namespace HandsOnDapper_Demo
                 Console.WriteLine("3. Get Movie By Id");
                 Console.WriteLine("4. Update Movie");
                 Console.WriteLine("5. Delete Movie");
+                Console.WriteLine("6. Get Movie By Title");
                 Console.WriteLine("0. Exit");
                 Console.Write("Enter your choice: ");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -83,8 +84,23 @@ namespace HandsOnDapper_Demo
                             var existingMovie = movieContract.GetMovieByIdAsync(movieId);
                             if (existingMovie.Result != null)
                             {
-                                movieContract.DeleteMovieAsync(existingMovie.Result.MovieId);
+                                movieContract.DeleteMovieAsync(movieId);
                                 Console.WriteLine("Movie deleted successfully.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Movie not found.");
+                            }
+                        }
+                        break;
+                    case 6:
+                        {
+                            Console.Write("Enter Movie Name: ");
+                            string title = (Console.ReadLine());
+                            var movie = movieContract.GetMovieByTitleAsync(title);
+                            if (movie.Result != null)
+                            {
+                                Console.WriteLine($"Id: {movie.Result.MovieId}, Title: {movie.Result.Title}, Director: {movie.Result.Director}, Release Date: {movie.Result.ReleaseDate?.ToShortDateString()}, Genre: {movie.Result.Genre}, Rating: {movie.Result.Rating}");
                             }
                             else
                             {

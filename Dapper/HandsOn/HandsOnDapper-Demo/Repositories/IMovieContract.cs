@@ -12,6 +12,7 @@ namespace HandsOnEFCodeFirst_Demo2.Repositories
         //Define the contract for movie repository operations
         Task<IEnumerable<Movie>> GetAllMoviesAsync(); // Get all movies
         Task<Movie?> GetMovieByIdAsync(int movieId); // Get a movie by its ID
+        Task<Movie?> GetMovieByTitleAsync(string Title); // Get a movie by its ID
         Task AddMovieAsync(Movie movie); // Add a new movie
         Task UpdateMovieAsync(Movie movie); // Update an existing movie
         Task DeleteMovieAsync(int movieId); // Delete a movie by its ID

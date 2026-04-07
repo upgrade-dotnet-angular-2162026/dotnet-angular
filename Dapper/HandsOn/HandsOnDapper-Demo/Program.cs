@@ -1,7 +1,8 @@
-﻿using System.Data;
-using Microsoft.Data.SqlClient;
-using Dapper;
+﻿using Dapper;
 using HandsOnDapper_Demo.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Net.NetworkInformation;
 namespace HandsOnDapper_Demo
 {
     internal class Program
@@ -14,7 +15,7 @@ namespace HandsOnDapper_Demo
         {
             db = new SqlConnection(connectionString);
         }
-        
+
         private void GetById(int id)
         {
 
@@ -23,7 +24,7 @@ namespace HandsOnDapper_Demo
                 db.Open();// Open the connection
                           //Fetching a record from the Product table by Id
                 var sql = "SELECT * FROM Product WHERE Id = @Id";
-               // var product = db.QuerySingle<Product>($"SELECT * FROM Product where Id={id}");
+                // var product = db.QuerySingle<Product>($"SELECT * FROM Product where Id={id}");
                 var product = db.QuerySingleOrDefault<Product>(sql, new { Id = id });
                 if (product == null)
                 {
@@ -93,7 +94,8 @@ namespace HandsOnDapper_Demo
                 db.Close();
             }
         }
-        private void DeleteProduct(int Id) {
+        private void DeleteProduct(int Id)
+        {
             try
             {
                 db.Open();
@@ -145,15 +147,15 @@ namespace HandsOnDapper_Demo
                 db.Close();
             }
         }
-       
+
         //Anonymous Parameters in Dapper
-        private void GetProductByIdAndNameUsingAnonymousParameters(int id,string name)
+        private void GetProductByIdAndNameUsingAnonymousParameters(int id, string name)
         {
             try
             {
-                var sql= "SELECT * FROM Product WHERE Id = @Id AND Name = @Name";
+                var sql = "SELECT * FROM Product WHERE Id = @Id AND Name = @Name";
                 db.Open();
-                var product = db.QuerySingle<Product>(sql, new { Id = id,Name=name });
+                var product = db.QuerySingle<Product>(sql, new { Id = id, Name = name });
                 if (product != null)
                 {
                     Console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}, Stock: {product.Stock}");
@@ -172,6 +174,41 @@ namespace HandsOnDapper_Demo
                 db.Close();
             }
         }
+        private void QueriesToExecute()
+        {
+            // Using QueryFirst to get the first record
+            var firstProduct = db.QueryFirst<Product>("SELECT * FROM Product");
+            Console.WriteLine($"First Product - Id: {firstProduct.Id}, Name: {firstProduct.Name}, Price: {firstProduct.Price}, Stock: {firstProduct.Stock}");
+            //Using QueryMultiple to get multiple records
+            var sql = "SELECT * FROM Product; SELECT COUNT(*) FROM Product";
+            Console.WriteLine(sql);
+            using (var multi = db.QueryMultiple(sql))
+            {
+                var allProducts = multi.Read<Product>().ToList();
+                var count = multi.ReadSingle<int>();
+                Console.WriteLine($"Total Products: {count}");
+                foreach (var product in allProducts)
+                {
+                    Console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Price: {product.Price}, Stock: {product.Stock}");
+                }
+            }
+            //Query sepecific columns
+            var specificColumns = db.Query("SELECT Name, Price FROM Product").ToList();
+            Console.WriteLine("Specific Columns (Name, Price):");
+            foreach (var item in specificColumns)
+            {
+                Console.WriteLine($"Name: {item.Name}, Price: {item.Price}");
+            }
+            //Execute Reader to read data
+            using (var reader = db.ExecuteReader("SELECT * FROM Product"))
+            {
+                while (reader.Read())
+                {
+                    Console.WriteLine($"Id: {reader["Id"]}, Name: {reader["Name"]}, Price: {reader["Price"]}, Stock: {reader["Stock"]}");
+                }
+            }
+        }
+
         private void GetAllProductsUsingProcedure()
         {
             try
@@ -221,8 +258,8 @@ namespace HandsOnDapper_Demo
             try
             {
                 Program program = new Program();
-                program.GetAll();
-                Console.WriteLine();
+                //program.GetAll();
+                //Console.WriteLine();
                 //program.GetById(3);
                 //program.AddProduct(new Product
                 //{
@@ -231,21 +268,21 @@ namespace HandsOnDapper_Demo
                 //    Price = 100,
                 //    Stock = 50
                 //});
-                Console.WriteLine();
-                program.GetAll();
-                //program.DeleteProduct(10);
-                Console.WriteLine("Enter the Id of the product you want to update:");
-                int Id = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter the new Price:");
-                int price = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter the new Stock:");
-                int stock = int.Parse(Console.ReadLine());
-                program.UpdateProduct(new Product
-                {
-                    Id = Id,
-                    Price = price,
-                    Stock = stock
-                });
+                //Console.WriteLine();
+                //program.GetAll();
+                ////program.DeleteProduct(10);
+                //Console.WriteLine("Enter the Id of the product you want to update:");
+                //int Id = int.Parse(Console.ReadLine());
+                //Console.WriteLine("Enter the new Price:");
+                //int price = int.Parse(Console.ReadLine());
+                //Console.WriteLine("Enter the new Stock:");
+                //int stock = int.Parse(Console.ReadLine());
+                //program.UpdateProduct(new Product
+                //{
+                //    Id = Id,
+                //    Price = price,
+                //    Stock = stock
+                //});
                 //Console.WriteLine("Enter the Id of the product you want to fetch:");
                 //if (int.TryParse(Console.ReadLine(), out int id))
                 //{
@@ -272,7 +309,8 @@ namespace HandsOnDapper_Demo
                 //    {
                 //        Console.WriteLine("Invalid Id entered.");
                 //    }
-
+                // program.QueriesToExecute();
+                program.GetAllProductsUsingProcedure();
 
             }
             catch (Exception ex)
