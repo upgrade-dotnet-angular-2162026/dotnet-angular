@@ -42,20 +42,44 @@ namespace HandsOnAPIUsingControllersAndModels.Controllers
         [HttpPost,Route("Add")]
         public IActionResult Add([FromBody]Product product)
         {
-            productRepository.Add(product);
-            return RedirectToAction("GetAll");
+            try
+            {
+                productRepository.Add(product);
+                return RedirectToAction("GetAll");
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, ex.Message);
+            }
         }
         [HttpDelete,Route("Delete/{id}")]
         public IActionResult Delete([FromRoute]int id)
         {
-            productRepository.Delete(id);
-            return Ok("Record Deleted");
+            try
+            {
+                productRepository.Delete(id);
+                return Ok("Record Deleted");
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, ex.Message);
+            }
         }
         [HttpPut, Route("Edit")]
         public IActionResult Edit([FromBody] Product product)
         {
-            productRepository.Update(product);
-            return RedirectToAction("GetAll");
+            try
+            {
+                productRepository.Update(product);
+                return RedirectToAction("GetAll");
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, ex.Message);
+            }
         }
 
     }

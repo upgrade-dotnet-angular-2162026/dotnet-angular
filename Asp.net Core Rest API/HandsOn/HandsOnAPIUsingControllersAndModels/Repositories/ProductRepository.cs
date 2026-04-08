@@ -20,19 +20,43 @@ namespace HandsOnAPIUsingControllersAndModels.Repositories
         }
         public void Add(Product product)
         {
-            products.Add(product);
+            try
+            {
+                products.Add(product);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public void Delete(int id)
         {
-            var product = products.SingleOrDefault(p => p.Id == id);
-            products.Remove(product);
+            try
+            {
+                var product = products.SingleOrDefault(p => p.Id == id);
+                products.Remove(product);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Product? Get(int id)
         {
-            var product = products.SingleOrDefault(p => p.Id == id);
-            return product;
+            try
+            {
+                var product = products.SingleOrDefault(p => p.Id == id);
+                return product;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Product> GetAll()
@@ -42,13 +66,21 @@ namespace HandsOnAPIUsingControllersAndModels.Repositories
 
         public void Update(Product product)
         {
-            for (int i = 0; i < products.Count; i++)
+            try
             {
-                if (products[i].Id == product.Id)
+                for (int i = 0; i < products.Count; i++)
                 {
-                    products[i].Price = product.Price;
-                    break;
+                    if (products[i].Id == product.Id)
+                    {
+                        products[i].Price = product.Price;
+                        break;
+                    }
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
