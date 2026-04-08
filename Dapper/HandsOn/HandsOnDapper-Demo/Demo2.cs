@@ -48,8 +48,8 @@ namespace HandsOnDapper_Demo
 };
             db.Execute(sql, products.Select(id => new { Id = id }));
         }
-    }
-    static void Main()
+
+        static void Main()
         {
             Demo2 obj = new Demo2();
             obj.BulkInsert();
@@ -57,3 +57,4 @@ namespace HandsOnDapper_Demo
             obj.BulkDelete();
         }
     }
+}
