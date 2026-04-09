@@ -15,6 +15,7 @@ namespace ECommService
             var connection = builder.Configuration.GetConnectionString("ECommConnection");
             builder.Services.AddDbContext<ECommDbContext>(options => options.UseSqlServer(connection));
             builder.Services.AddTransient<IUserRepository, UserRepository>();
+            builder.Services.AddTransient<IProductRepository,ProductRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();

@@ -52,6 +52,7 @@ namespace ECommService.Controllers
                 UserReadDto userReadDto = new UserReadDto();
                 if (user != null)
                 {
+                    //converting user entity to userReadDto
                      userReadDto = new UserReadDto()
                     {
                         UserId = user.UserId,
@@ -74,6 +75,7 @@ namespace ECommService.Controllers
         {
             try
             {
+                //converting dto to user entity
                 var user = new User()
                 { 
                     Email=userUpdate.Email,

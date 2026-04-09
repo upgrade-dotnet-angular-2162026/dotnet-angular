@@ -19,9 +19,12 @@ namespace ECommService.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task Update(User user)
+        public async Task Update(User updateUser)
         {
-            _context.Users.Update(user);
+            var existingUser= await _context.Users.FindAsync(updateUser.UserId);
+            //updated only Email and Mobile and rest are same as it is
+            existingUser.Email=updateUser.Email;
+            existingUser.Mobile=updateUser.Mobile;
             await _context.SaveChangesAsync();
         }
 
