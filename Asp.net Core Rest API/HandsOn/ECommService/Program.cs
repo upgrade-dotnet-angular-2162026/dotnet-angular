@@ -1,5 +1,6 @@
 
 using ECommService.Database;
+using ECommService.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommService
@@ -13,6 +14,7 @@ namespace ECommService
             // Add services to the container.
             var connection = builder.Configuration.GetConnectionString("ECommConnection");
             builder.Services.AddDbContext<ECommDbContext>(options => options.UseSqlServer(connection));
+            builder.Services.AddTransient<IUserRepository, UserRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();

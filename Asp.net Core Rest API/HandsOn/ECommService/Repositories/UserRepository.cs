@@ -1,22 +1,34 @@
-﻿using ECommService.Entities;
+﻿using ECommService.Database;
+using ECommService.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommService.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public Task Register(User user)
+        private readonly ECommDbContext _context;
+
+        public UserRepository(ECommDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task Update(User user)
+        public async Task Register(User user)
         {
-            throw new NotImplementedException();
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<User> Validate(string email, string password)
+        public async Task Update(User user)
         {
-            throw new NotImplementedException();
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<User> Validate(string email, string password)
+        {
+            User ?user= await _context.Users.SingleOrDefaultAsync(u=>u.Email==email &&  u.Password==password);
+            return user;
         }
     }
 }

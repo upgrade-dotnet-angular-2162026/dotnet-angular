@@ -1,37 +1,51 @@
-﻿using ECommService.Entities;
+﻿using ECommService.Database;
+using ECommService.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommService.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        public Task Add(Product product)
+        private readonly ECommDbContext _context;
+
+        public ProductRepository(ECommDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task Delete(Product product)
+        public async Task Add(Product product)
         {
-            throw new NotImplementedException();
+           _context.Products.Add(product);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Product> Get(int id)
+        public async Task Delete(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<List<Product>> GetAll()
+        public async Task<Product> Get(int id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.FindAsync(id);
+            return product;
         }
 
-        public Task<Product> Search(string name)
+        public async Task<List<Product>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Products.ToListAsync();
         }
 
-        public Task Update(Product product)
+        public async Task<Product> Search(string name)
         {
-            throw new NotImplementedException();
+            var product=await _context.Products.SingleOrDefaultAsync(x => x.Name == name);
+            return product;
+        }
+
+        public async Task Update(Product product)
+        {
+          _context.Products.Update(product);
+            await _context.SaveChangesAsync();
         }
     }
 }
