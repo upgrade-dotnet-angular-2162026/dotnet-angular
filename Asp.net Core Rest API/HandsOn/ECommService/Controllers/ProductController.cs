@@ -60,7 +60,7 @@ namespace ECommService.Controllers
             }
         }
         [HttpDelete("Delete/{id}")]
-        public async Task<IActionResult> Delete([FromRoute]int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             try
             {
@@ -74,14 +74,15 @@ namespace ECommService.Controllers
                 return StatusCode(500, ex.InnerException.Message);
             }
         }
-        public async Task<IActionResult> Update(int id,ProductUpdateDto dto)
+        [HttpPatch("Edit")]
+        public async Task<IActionResult> Update([FromQuery] int id, [FromBody] ProductUpdateDto dto)
         {
             try
             {
                 var existingProduct = await productRepository.Get(id);
                 existingProduct.Price = dto.Price;
                 existingProduct.Stock = dto.Stock;
-                productRepository.Update(existingProduct);
+                await productRepository.Update(existingProduct);
                 return Ok(existingProduct);
             }
             catch (Exception ex)
@@ -92,5 +93,27 @@ namespace ECommService.Controllers
 
         }
 
+
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                var products = await productRepository.GetAll();
+                //convert product entities to ProductReadDtos
+                var productsDto = products.Select(product => new ProductReadDto()
+                {
+                    Name = product.Name,
+                    Price = product.Price,
+                    Id = product.Id
+                });
+                return Ok(productsDto);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, ex.InnerException.Message);
+            }
+        }
     }
 }
