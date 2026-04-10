@@ -1,6 +1,7 @@
 ﻿using ECommService.DTOs;
 using ECommService.Entities;
 using ECommService.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
@@ -102,6 +103,7 @@ namespace ECommService.Controllers
 
 
         [HttpGet("GetAll")]
+      
         public async Task<IActionResult> GetAll()
         {
             try
