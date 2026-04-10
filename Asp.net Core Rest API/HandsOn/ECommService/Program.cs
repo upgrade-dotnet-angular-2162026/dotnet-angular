@@ -17,6 +17,8 @@ namespace ECommService
             builder.Services.AddTransient<IUserRepository, UserRepository>();
             builder.Services.AddTransient<IProductRepository,ProductRepository>();
             builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
@@ -26,6 +28,8 @@ namespace ECommService
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseAuthorization();
