@@ -22,8 +22,12 @@ namespace HandsOnAPIUsingExceptionHandling
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-                //app.UseDeveloperExceptionPage();// Detailed error pages in development
-                //app.UseExceptionHandler("/api/error"); // Redirect to error controller
+               //app.UseDeveloperExceptionPage();// Detailed error pages in development
+              // app.UseExceptionHandler("/api/error"); // Redirect to error controller
+            }
+            else if(app.Environment.IsProduction())
+            {
+                app.UseExceptionHandler("/api/error");
             }
 
             app.UseAuthorization();

@@ -10,7 +10,7 @@ namespace HandsOnAPIUsingExceptionHandling.Controllers
         [HttpGet("error")]
         public IActionResult Get()
         {
-            return Ok("Error Occurred");
+            return Ok("Error Occurred, Will Resolve It!!!");
         }
     }
 }
