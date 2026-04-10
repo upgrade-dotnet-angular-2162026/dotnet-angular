@@ -21,21 +21,28 @@ namespace ECommService.Controllers
         public async Task<IActionResult> Add(ProductCreateDto productDto)
         {
             //convert productDto to product entity
-            try
+            if (ModelState.IsValid)
             {
-                var product = new Product()
+                try
                 {
-                    Name = productDto.Name,
-                    Price = productDto.Price,
-                    Stock = productDto.Stock,
-                };
-                await productRepository.Add(product);
-                return Ok(product);
-            }
-            catch (Exception ex)
-            {
+                    var product = new Product()
+                    {
+                        Name = productDto.Name,
+                        Price = productDto.Price,
+                        Stock = productDto.Stock,
+                    };
+                    await productRepository.Add(product);
+                    return Ok(product);
+                }
+                catch (Exception ex)
+                {
 
-                return StatusCode(500, ex.InnerException.Message);
+                    return StatusCode(500, ex.InnerException.Message);
+                }
+            }
+            else
+            {
+                return BadRequest(ModelState);
             }
         }
         [HttpGet("Search/{name}")]

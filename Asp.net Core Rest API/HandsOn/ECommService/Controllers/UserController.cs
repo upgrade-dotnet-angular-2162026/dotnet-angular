@@ -19,28 +19,35 @@ namespace ECommService.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody]UserCreateDto userdto)
         {
-            try
+            if (ModelState.IsValid)
             {
-                //converting userDto data to User entity
-                var user = new User()
+                try
                 {
-                    Name=userdto.Name,
-                    Email=userdto.Email,
-                    Mobile=userdto.Mobile,
-                    Role=userdto.Role,
-                    Password=userdto.Password,
-                    CreatedDate=DateTime.Now,
-                };
-               
-                await userRepository.Register(user);
-                return Ok(user);
+                    //converting userDto data to User entity
+                    var user = new User()
+                    {
+                        Name = userdto.Name,
+                        Email = userdto.Email,
+                        Mobile = userdto.Mobile,
+                        Role = userdto.Role,
+                        Password = userdto.Password,
+                        CreatedDate = DateTime.Now,
+                    };
+
+                    await userRepository.Register(user);
+                    return Ok(user);
+                }
+                catch (Exception ex)
+                {
+                    if (ex.InnerException != null)
+                        return StatusCode(500, ex.InnerException.Message);
+                    else
+                        return StatusCode(500, ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                if (ex.InnerException != null)
-                    return StatusCode(500, ex.InnerException.Message);
-                else
-                    return StatusCode(500, ex.Message);
+                return BadRequest(ModelState);
             }
         }
         [HttpPost("SignIn")]
