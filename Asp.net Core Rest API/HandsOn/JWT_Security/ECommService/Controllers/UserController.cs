@@ -3,6 +3,10 @@ using ECommService.Entities;
 using ECommService.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace ECommService.Controllers
 {
@@ -11,13 +15,15 @@ namespace ECommService.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository userRepository;
+        private IConfiguration _config;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserRepository userRepository, IConfiguration config)
         {
             this.userRepository = userRepository;
+            _config = config;
         }
         [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody]UserCreateDto userdto)
+        public async Task<IActionResult> Register([FromBody] UserCreateDto userdto)
         {
             if (ModelState.IsValid)
             {
@@ -55,18 +61,19 @@ namespace ECommService.Controllers
         {
             try
             {
-                var user = await userRepository.Validate(loginDto.Email,loginDto.Password);
+                var user = await userRepository.Validate(loginDto.Email, loginDto.Password);
                 UserReadDto userReadDto = new UserReadDto();
                 if (user != null)
                 {
                     //converting user entity to userReadDto
-                     userReadDto = new UserReadDto()
+                    userReadDto = new UserReadDto()
                     {
                         UserId = user.UserId,
                         Name = user.Name,
-                        Role = user.Role
+                        Role = user.Role,
+                        Token = GenerateToken(user)
                     };
-                   
+
                 }
                 return Ok(userReadDto);
 
@@ -84,11 +91,11 @@ namespace ECommService.Controllers
             {
                 //converting dto to user entity
                 var user = new User()
-                { 
-                    Email=userUpdate.Email,
-                    Mobile=userUpdate.Mobile,
-                    UserId=userUpdate.UserId,
-                    Name=userUpdate.Name,
+                {
+                    Email = userUpdate.Email,
+                    Mobile = userUpdate.Mobile,
+                    UserId = userUpdate.UserId,
+                    Name = userUpdate.Name,
                 };
 
                 await userRepository.Update(user);
@@ -99,6 +106,29 @@ namespace ECommService.Controllers
 
                 return StatusCode(500, ex.Message);
             }
+        }
+        private string GenerateToken(User user)
+        {
+            //generating key
+            var key = new SymmetricSecurityKey(
+Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            //define claims
+            var claims = new[]
+{
+new Claim(ClaimTypes.Name, user.Name),
+new Claim(ClaimTypes.Role, user.Role)
+};
+            //token generation
+            var token = new JwtSecurityToken(
+issuer: _config["Jwt:Issuer"],
+audience: _config["Jwt:Audience"],
+claims: claims,
+expires: System.DateTime.Now.AddMinutes(Convert.ToDouble(_config["Jwt:ExpiryMinutes"])),
+signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
+);
+            //convert token object to string
+            string generatedToken = new JwtSecurityTokenHandler().WriteToken(token).ToString();
+            return generatedToken;
         }
     }
 }

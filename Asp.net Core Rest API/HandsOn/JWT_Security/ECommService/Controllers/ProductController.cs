@@ -103,7 +103,7 @@ namespace ECommService.Controllers
 
 
         [HttpGet("GetAll")]
-      
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             try
