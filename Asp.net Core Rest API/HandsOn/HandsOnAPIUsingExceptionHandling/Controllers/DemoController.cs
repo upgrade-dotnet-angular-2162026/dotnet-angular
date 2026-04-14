@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HandsOnAPIUsingExceptionHandling.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class DemoController : ControllerBase
     {
         [HttpGet("test")]
