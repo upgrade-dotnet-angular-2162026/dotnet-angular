@@ -19,6 +19,7 @@ namespace ECommService.Controllers
             this.productRepository = productRepository;
         }
         [HttpPost("Add")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add(ProductCreateDto productDto)
         {
             //convert productDto to product entity
@@ -47,6 +48,7 @@ namespace ECommService.Controllers
             }
         }
         [HttpGet("Search/{name}")]
+        [Authorize(Roles = "Admin,Customer")]
         public async Task<IActionResult> Search(string name)
         {
             try
@@ -68,6 +70,7 @@ namespace ECommService.Controllers
             }
         }
         [HttpDelete("Delete/{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             try
@@ -83,6 +86,7 @@ namespace ECommService.Controllers
             }
         }
         [HttpPatch("Edit")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Update([FromQuery] int id, [FromBody] ProductUpdateDto dto)
         {
             try

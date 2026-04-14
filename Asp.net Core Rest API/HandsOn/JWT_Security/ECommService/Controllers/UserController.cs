@@ -1,6 +1,7 @@
 ﻿using ECommService.DTOs;
 using ECommService.Entities;
 using ECommService.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -23,6 +24,7 @@ namespace ECommService.Controllers
             _config = config;
         }
         [HttpPost("Register")]
+        [AllowAnonymous] //any user can access
         public async Task<IActionResult> Register([FromBody] UserCreateDto userdto)
         {
             if (ModelState.IsValid)
@@ -57,6 +59,7 @@ namespace ECommService.Controllers
             }
         }
         [HttpPost("SignIn")]
+        [AllowAnonymous]
         public async Task<IActionResult> Validate(LoginDto loginDto)
         {
             try
@@ -85,6 +88,7 @@ namespace ECommService.Controllers
             }
         }
         [HttpPut("Edit")]
+        [Authorize(Roles ="Customer")]
         public async Task<IActionResult> Edit(UserUpdateDto userUpdate)
         {
             try
@@ -112,7 +116,7 @@ namespace ECommService.Controllers
             //generating key
             var key = new SymmetricSecurityKey(
 Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-            //define claims
+            //define claims(payloads)
             var claims = new[]
 {
 new Claim(ClaimTypes.Name, user.Name),

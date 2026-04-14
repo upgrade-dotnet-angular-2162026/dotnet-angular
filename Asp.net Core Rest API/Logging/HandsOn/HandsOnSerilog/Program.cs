@@ -1,5 +1,5 @@
-
-namespace HandsOnAPIUsingExceptionHandling
+using Serilog;
+namespace HandsOnSerilog
 {
     public class Program
     {
@@ -8,31 +8,34 @@ namespace HandsOnAPIUsingExceptionHandling
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            // Configure Serilog
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .WriteTo.File(
+                    path: "Logs/log-.txt",
+                    rollingInterval: RollingInterval.Day)
+                .CreateLogger();
 
+            // Replace default logger with Serilog
+            builder.Host.UseSerilog();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-            // Global Exception Middleware
-            app.UseMiddleware<ExceptionMiddleware>();
+           // app.UseSerilogRequestLogging(); // Logs HTTP requests
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-               //app.UseDeveloperExceptionPage();// Detailed error pages in development
-              // app.UseExceptionHandler("/api/error"); // Redirect to error controller
             }
-            else if(app.Environment.IsProduction())
-            {
-                app.UseExceptionHandler("/api/error");
-            }
-            app.UseRouting();
-           // app.UseAuthentication();
+
             app.UseAuthorization();
-            
+
 
             app.MapControllers();
 

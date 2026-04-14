@@ -1,5 +1,5 @@
 
-namespace HandsOnAPIUsingExceptionHandling
+namespace HandsOnLogging
 {
     public class Program
     {
@@ -8,32 +8,24 @@ namespace HandsOnAPIUsingExceptionHandling
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+          
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            //builder.Logging.ClearProviders(); 
+            //builder.Logging.AddConsole();
+            //builder.Logging.AddDebug(); // Required for Visual Studio Debug window
             var app = builder.Build();
-            // Global Exception Middleware
-            app.UseMiddleware<ExceptionMiddleware>();
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
-               //app.UseDeveloperExceptionPage();// Detailed error pages in development
-              // app.UseExceptionHandler("/api/error"); // Redirect to error controller
             }
-            else if(app.Environment.IsProduction())
-            {
-                app.UseExceptionHandler("/api/error");
-            }
-            app.UseRouting();
-           // app.UseAuthentication();
+           //app.UseMiddleware<RequestLoggingMiddleware>(); // Custom middleware for logging requests
             app.UseAuthorization();
-            
-
             app.MapControllers();
 
             app.Run();
