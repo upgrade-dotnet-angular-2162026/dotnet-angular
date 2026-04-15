@@ -2,5 +2,6 @@
   <Project Path="HealchCare.PatientAPI/HealchCare.PatientAPI.csproj" />
   <Project Path="HealthCare.AppointMentAPI/HealthCare.AppointMentAPI.csproj" />
   <Project Path="HealthCare.DoctorAPI/HealthCare.DoctorAPI.csproj" />
+  <Project Path="HealthCare.Gateway/HealthCare.Gateway.csproj" Id="ed902aa3-6935-4338-9a25-c7799fa18e45" />
   <Project Path="HealthCare.UserAPI/HealthCare.UserAPI.csproj" />
 </Solution>
