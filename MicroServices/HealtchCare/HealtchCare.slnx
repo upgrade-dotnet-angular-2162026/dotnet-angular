@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Project Path="HealchCare.PatientAPI/HealchCare.PatientAPI.csproj" />
+  <Project Path="HealthCare.AppointMentAPI/HealthCare.AppointMentAPI.csproj" />
+  <Project Path="HealthCare.DoctorAPI/HealthCare.DoctorAPI.csproj" />
+  <Project Path="HealthCare.UserAPI/HealthCare.UserAPI.csproj" />
+</Solution>
