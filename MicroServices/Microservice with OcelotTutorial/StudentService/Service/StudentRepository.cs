@@ -35,7 +35,7 @@ namespace StudentService.Service
 
         public Student Get(int id)
         {
-            return _students[id];
+            return _students[id-1];
         }
 
         public List<Student> GetAll()

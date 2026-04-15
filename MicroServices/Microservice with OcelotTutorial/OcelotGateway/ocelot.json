@@ -1,11 +1,11 @@
 {
-  //"GlobalConfiguration": {
-  //  "BaseUrl": "http://localhost:5003"
-  //},
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5003"
+  },
   "Routes": [
     {
-      "UpstreamPathTemplate": "/gateway/students",
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamPathTemplate": "/etech/students",
+      "UpstreamHttpMethod": [ "Get","POST" ],
       "DownstreamPathTemplate": "/api/Student",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -16,9 +16,9 @@
       ]
     },
     {
-      "UpstreamPathTemplate": "/gateway/students/{Id}",
+      "UpstreamPathTemplate": "/etech/students/{pattern}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/Student/{Id}",
+      "DownstreamPathTemplate": "/api/Student/{pattern}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "UpstreamPathTemplate": "/gateway/teacher",
+      "UpstreamPathTemplate": "/etech/teacher",
       "UpstreamHttpMethod": [ "Get" ],
       "DownstreamPathTemplate": "/api/Teacher",
       "DownstreamScheme": "http",
@@ -40,9 +40,9 @@
       ]
     },
     {
-      "UpstreamPathTemplate": "/gateway/teacher/{Id}",
+      "UpstreamPathTemplate": "/etech/teacher/{pattern}",
       "UpstreamHttpMethod": [ "Get" ],
-      "DownstreamPathTemplate": "/api/Teacher/{Id}",
+      "DownstreamPathTemplate": "/api/Teacher/{pattern}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
