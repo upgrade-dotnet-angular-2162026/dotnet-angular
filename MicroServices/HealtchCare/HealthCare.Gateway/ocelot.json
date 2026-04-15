@@ -1,0 +1,103 @@
+{
+	"GlobalConfiguration": {
+		"BaseUrl": "http://localhost:5043"
+	},
+	"Routes": [
+		{
+			"UpstreamPathTemplate": "/healthcare/Patient",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/Patient",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5181
+				}
+			]
+		},
+		{
+			"UpstreamPathTemplate": "/healthcare/Patient/{pattern}",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/Patient/{pattern}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5181
+				}
+			]
+		},
+		{
+			"UpstreamPathTemplate": "/healthcare/Doctor/",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/Doctor",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5151
+				}
+			]
+		},
+		{
+			"UpstreamPathTemplate": "/healthcare/Doctor/{pattern}",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/Doctor/{pattern}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5151
+				}
+			]
+		},
+		{
+			"UpstreamPathTemplate": "/healthcare/Appointment/",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/Appointment",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5231
+				}
+			]
+		},
+		{
+			"UpstreamPathTemplate": "/healthcare/Appointment/{pattern}",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/Appointment/{pattern}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5231
+				}
+			]
+		},
+		{
+			"UpstreamPathTemplate": "/healthcare/User/",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/User",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5114
+				}
+			]
+		},
+		{
+			"UpstreamPathTemplate": "/healthcare/User/{pattern}",
+			"UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+			"DownstreamPathTemplate": "/api/User/{pattern}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5114
+				}
+			]
+		}
+	]
+}

@@ -1,4 +1,7 @@
 
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+
 namespace HealthCare.Gateway
 {
     public class Program
@@ -10,6 +13,8 @@ namespace HealthCare.Gateway
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+            builder.Services.AddOcelot(builder.Configuration);
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
@@ -25,7 +30,7 @@ namespace HealthCare.Gateway
 
 
             app.MapControllers();
-
+            app.UseOcelot(); //enable the ocelot middleware
             app.Run();
         }
     }
