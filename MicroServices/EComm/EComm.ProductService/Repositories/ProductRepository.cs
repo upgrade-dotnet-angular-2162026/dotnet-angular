@@ -10,12 +10,12 @@ namespace EComm.ProductService.Repositories
         {
             _context = context;
         }
-        public async Task CreateProduct(Product product)
+        public async Task CreateProductAsync(Product product)
         {
             _context.Products.Add(product);
             await  _context.SaveChangesAsync();
         }
-        public async Task DeleteProduct(int id)
+        public async Task DeleteProductAsync(int id)
         {
             var product = await _context.Products.FindAsync(id);
             if (product != null)
@@ -24,16 +24,16 @@ namespace EComm.ProductService.Repositories
                 await _context.SaveChangesAsync();
             }
         }
-        public async Task<List<Product>> GetAllProducts()
+        public async Task<List<Product>> GetAllProductsAsync()
         {
             return await _context.Products.ToListAsync();
         }
-        public async Task<Product> GetProductById(int productId)
+        public async Task<Product> GetProductByIdAsync(int productId)
         {
             return await _context.Products.FindAsync(productId);
         }
 
-        public async Task UpdateProduct(int id, Product product)
+        public async Task UpdateProductAsync(int id, Product product)
         {
             var existingProduct = await _context.Products.FindAsync(id);
             if (existingProduct != null)

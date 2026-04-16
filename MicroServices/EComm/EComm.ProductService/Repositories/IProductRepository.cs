@@ -3,10 +3,10 @@ namespace EComm.ProductService.Repositories
 {
     public interface IProductRepository
     {
-        Task CreateProduct(Product product);
-        Task UpdateProduct(int id, Product product);
-        Task DeleteProduct(int id);
-        Task<Product> GetProductById(int productId);
-        Task<List<Product>> GetAllProducts();
+        Task CreateProductAsync(Product product);
+        Task UpdateProductAsync(int id, Product product);
+        Task DeleteProductAsync(int id);
+        Task<Product> GetProductByIdAsync(int productId);
+        Task<List<Product>> GetAllProductsAsync();
     }
 }

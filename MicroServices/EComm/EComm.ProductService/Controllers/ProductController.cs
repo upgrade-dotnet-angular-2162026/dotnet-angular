@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using EComm.ProductService.Services;
 using EComm.ProductService.Entities;
+using EComm.ProductService.DTOs;
 namespace EComm.ProductService.Controllers
 {
     [Route("api/[controller]")]
@@ -16,11 +17,11 @@ namespace EComm.ProductService.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] Product product)
         {
-            await _productService.CreateProduct(product);
+           // await _productService.CreateProduct(product);
             return Ok();
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduct(int id, [FromBody] Product product)
+        public async Task<IActionResult> UpdateProduct(int id, [FromBody] CreateProductDto product)
         {
             await _productService.UpdateProduct(id, product);
             return Ok();
