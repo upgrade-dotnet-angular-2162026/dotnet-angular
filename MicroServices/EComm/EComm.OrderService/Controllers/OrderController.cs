@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EComm.OrderService.DTOs;
+using EComm.OrderService.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EComm.OrderService.Controllers
@@ -7,18 +9,28 @@ namespace EComm.OrderService.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        [HttpGet("{orderId}")]
-        public IActionResult GetOrder(int orderId)
+        private readonly IOrderService _orderService;
+        public OrderController(IOrderService orderService)
         {
-            // Placeholder logic to retrieve an order by its ID
-            var order = new
-            {
-                OrderId = orderId,
-                ProductName = "Sample Product",
-                Quantity = 2,
-                Price = 29.99
-            };
-            return Ok(order);
+            _orderService = orderService;
+        }
+        [HttpGet("GetOrdersByUser/{userId}")]
+        public async Task<IActionResult> GetOrders(string userId)
+        {
+            var orders = await _orderService.GetOrdersByUserIdAsync(userId);
+            return Ok(orders);
+        }
+        [HttpPost("CreateOrder")]
+        public async Task<IActionResult> CreateOrder([FromBody] CreateOrderDto orderDto)
+        {
+            await _orderService.CreateOrderAsync(orderDto);
+            return Ok(orderDto);
+        }
+        [HttpDelete("CancelOrder/{orderId}")]
+        public async Task<IActionResult> CancelOrder(Guid orderId)
+        {
+            await _orderService.CancelOrderAsync(orderId);
+            return NoContent();
         }
     }
 }

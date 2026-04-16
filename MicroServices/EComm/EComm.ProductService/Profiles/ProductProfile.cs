@@ -7,7 +7,7 @@ namespace EComm.ProductService.Profiles
     {
         public ProductProfile() {
             //Define mapping configurations here
-            CreateMap<Product, CreateProductDto>();
+            CreateMap<Product, ReadProductDto>();
             CreateMap<CreateProductDto, Product>();
                 CreateMap<Product, ReadProductDto>();
            

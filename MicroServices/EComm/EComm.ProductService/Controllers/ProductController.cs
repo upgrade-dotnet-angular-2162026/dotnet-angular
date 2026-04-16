@@ -15,9 +15,9 @@ namespace EComm.ProductService.Controllers
             _productService = productService;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody] Product product)
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProductDto product)
         {
-           // await _productService.CreateProduct(product);
+            await _productService.CreateProduct(product);
             return Ok();
         }
         [HttpPut("{id}")]

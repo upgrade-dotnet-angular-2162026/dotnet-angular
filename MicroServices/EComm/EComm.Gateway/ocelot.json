@@ -1,6 +1,19 @@
 {
 	"Routes": [
 		{
+			"DownstreamPathTemplate": "/api/Product",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5184
+				}
+			],
+			"UpstreamPathTemplate": "/Ecomm/Product",
+			"UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+		},
+		{
+
 			"DownstreamPathTemplate": "/api/Product/{route}",
 			"DownstreamScheme": "http",
 			"DownstreamHostAndPorts": [
@@ -9,7 +22,19 @@
 					"Port": 5184
 				}
 			],
-			"UpstreamPathTemplate": "/product-service/{route}",
+			"UpstreamPathTemplate": "/Ecomm/Product/{route}",
+			"UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Order",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5229
+				}
+			],
+			"UpstreamPathTemplate": "/Ecomm/Order",
 			"UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
 		},
 		{
@@ -21,7 +46,19 @@
 					"Port": 5229
 				}
 			],
-			"UpstreamPathTemplate": "/order-service/{route}",
+			"UpstreamPathTemplate": "/Ecomm/Order/{route}",
+			"UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+		},
+		{
+			"DownstreamPathTemplate": "/api/Identity",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5090
+				}
+			],
+			"UpstreamPathTemplate": "/Ecomm/Identity",
 			"UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
 		},
 		{
@@ -33,7 +70,7 @@
 					"Port": 5090
 				}
 			],
-			"UpstreamPathTemplate": "/user-service/{route}",
+			"UpstreamPathTemplate": "/Ecomm/Identity/{route}",
 			"UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
 		}
 	],

@@ -3,8 +3,8 @@ namespace EComm.OrderService.Repositories
 {
     public interface IOrderRepository
     {
-        Task CreateOrder(Order order);
-        Task CancelOrder(Guid orderId);
-        Task<List<Order>> GetOrdersByUserId(string userId);
+        Task CreateOrderAsync(Order order);
+        Task CancelOrderAsync(Guid orderId);
+        Task<List<Order>> GetOrdersByUserIdAsync(string userId);
     }
 }

@@ -9,5 +9,6 @@ namespace EComm.IdentityService.Data
         }
 
         public DbSet<User> Users { get; set; }
+
     }
 }

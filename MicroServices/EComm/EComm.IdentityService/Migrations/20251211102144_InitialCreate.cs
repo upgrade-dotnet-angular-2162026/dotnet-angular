@@ -15,11 +15,11 @@ namespace EComm.IdentityService.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "varchar(10)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    Role = table.Column<string>(type: "nvarchar(50)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
