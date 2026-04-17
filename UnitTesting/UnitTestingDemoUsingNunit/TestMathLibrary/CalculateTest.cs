@@ -1,5 +1,6 @@
 ﻿using NUnit;
 using MathLibrary;
+using NUnit.Framework.Legacy;
 namespace TestMathLibrary
 {
     [TestFixture]
@@ -28,7 +29,8 @@ namespace TestMathLibrary
             //Act
             int actual = obj.Add(2, 3);
             //Assert
-           Assert.That(expected,Is.EqualTo(actual));
+          // Assert.That(expected,Is.EqualTo(actual));
+        ClassicAssert.AreEqual(expected, actual);
         }
         [Test]
         public void Test_IsEven_Fail()
