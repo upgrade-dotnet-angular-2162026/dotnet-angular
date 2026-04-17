@@ -1,4 +1,4 @@
-using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using CalculateLibrary;
 namespace CalculateLibTestProject
 {
@@ -11,16 +11,16 @@ namespace CalculateLibTestProject
         {
             // This method is called before each test method is run.
             // You can use it to set up any necessary state or resources.
-           // _calculate = new Calculate();
+           _calculate = new Calculate();
         }
-        [OneTimeSetUp]
-        public void OneTimeSetup()
-        {
-            // This method is called once before any test methods are run.
-            // You can use it to set up resources that are shared across all tests.
-            Console.WriteLine("OneTimeSetup: This runs once before all tests.");
-            _calculate = new Calculate();
-        }
+        //[OneTimeSetUp]
+        //public void OneTimeSetup()
+        //{
+        //    // This method is called once before any test methods are run.
+        //    // You can use it to set up resources that are shared across all tests.
+        //    Console.WriteLine("OneTimeSetup: This runs once before all tests.");
+        //    _calculate = new Calculate();
+        //}
         //Wriring a test method to test the Add method
         [Test]
         public void Add_TwoPositiveIntegers_ReturnsSum()
@@ -32,7 +32,7 @@ namespace CalculateLibTestProject
             // Act
             int actual = _calculate.Add(a, b);
             // Assert
-            Assert.AreEqual(expected,actual);
+            ClassicAssert.AreEqual(expected,actual);
         }
         //Writting a test method to test the Multiply method
         [Test]
@@ -45,7 +45,7 @@ namespace CalculateLibTestProject
             // Act
             int actual = _calculate.Multiply(a, b);
             // Assert
-            Assert.AreEqual(expected, actual);
+            ClassicAssert.AreEqual(expected, actual);
         }
         //Writting a test method to test the IsEven method
         [Test]
@@ -56,7 +56,7 @@ namespace CalculateLibTestProject
             // Act
             bool result = _calculate.IsEven(number);
             // Assert
-            Assert.IsTrue(result);
+            ClassicAssert.IsTrue(result);
         }
         [Test]
         [Ignore("This test is ignored for demonstration purposes.")]
@@ -67,20 +67,20 @@ namespace CalculateLibTestProject
             // Act
             bool result = _calculate.IsEven(number);
             // Assert
-            Assert.IsFalse(result);
+            ClassicAssert.IsFalse(result);
         }
         //Writting a test method to test the Divide method
         //Passing multiple test cases using TestCase attribute
         [Test]
         [TestCase(10, 2, 5)]
         [TestCase(20, 4, 5)]
-        [TestCase(15, 3, 15)]
+        [TestCase(15, 3, 5)]
         public void Divide_ValidInputs_ReturnsQuotient(int a, int b, int expected)
         {
             // Act
             int actual = _calculate.Divide(a, b);
             // Assert
-            Assert.AreEqual(expected, actual);
+            ClassicAssert.AreEqual(expected, actual);
         }
         [Test]
         [TearDown]
@@ -91,14 +91,14 @@ namespace CalculateLibTestProject
             Console.WriteLine("TearDown: This runs after each test.");
             _calculate = null; // Clean up the Calculate instance
         }
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
-        {
-            // This method is called once after all test methods have run.
-            // You can use it to clean up resources that were shared across all tests.
-            Console.WriteLine("OneTimeTearDown: This runs once after all tests.");
-            _calculate = null; // Clean up the Calculate instance
-        }
+        //[OneTimeTearDown]
+        //public void OneTimeTearDown()
+        //{
+        //    // This method is called once after all test methods have run.
+        //    // You can use it to clean up resources that were shared across all tests.
+        //    Console.WriteLine("OneTimeTearDown: This runs once after all tests.");
+        //    _calculate = null; // Clean up the Calculate instance
+        //}
         [Test]
         public void Divide_ByZero_ThrowsDivideByZeroException()
         {

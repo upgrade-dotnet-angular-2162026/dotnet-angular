@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using NUnit;
+using NUnit.Framework.Legacy;
 namespace CalculateLibTestProject
 {
     internal class TestClassWithReturnValues
@@ -15,7 +16,7 @@ namespace CalculateLibTestProject
             string actual = "Hello, World!";
            
             // Assert
-            Assert.AreEqual("hello,World", actual);
+           // Assert.AreEqual("hello,World", actual);
             Assert.That("hello,World", Is.EqualTo(actual).IgnoreCase, "The strings are not equal ignoring case.");
             Assert.That(actual,Does.Contain("World"), "The string does not contain 'World'.");
             Assert.That(actual, Does.StartWith("Hello"), "The string does not start with 'Hello'.");    
@@ -75,7 +76,7 @@ namespace CalculateLibTestProject
             // Act
             calculate.IncrementCount();
             // Assert
-            Assert.AreEqual(1, calculate.Count, "Count should be incremented to 1.");
+            ClassicAssert.AreEqual(1, calculate.Count, "Count should be incremented to 1.");
         }
     }
 }
