@@ -1,22 +1,26 @@
 //Built-In Types
-let no:number=12;
-let no1:number=23.456;
-console.log(no)
-console.log(no1)
+let age: number = 12;
+let price: number = 23.456;
+console.log(age)
+console.log(price)
 //string types
-let empName:string='Rohan'
-let stuName:string="Karan"
-let empDept:string='IT'
-console.log('EmpName '+empName)
+let empName: string = 'Rohan'
+let stuName: string = "Karan"
+let empDept: string = 'IT'
+let message: string = `Hello ${empName}`
+console.log('EmpName ' + empName)
 console.log(`Name: ${empName}`);
+console.log(message)
 //boolean types
-let isStudent:boolean=true;
-console.log(isStudent?'Student':'Teachher');
+let isStudent: boolean = true;
+let isActive: boolean = true;
+console.log(isStudent ? 'Student' : 'Teachher');
 //null value
-let eName:string|null=null;
-let sId:number|null=null;
+let data: null = null;
+let eName: string | null = null; //assign null value to the string type
+let sId: number | null = null; //assign null value to the number type
 //undefined
-let n:number=90;
-let isAssigned:boolean|undefined=undefined;
-let deptName:string|undefined=undefined;
-console.log(n)
+let value: undefined = undefined
+let isAssigned: boolean | undefined = undefined;
+let deptName: string | undefined = undefined;
+console.log(value)
