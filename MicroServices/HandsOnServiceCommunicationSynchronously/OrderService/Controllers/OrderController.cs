@@ -9,6 +9,12 @@ namespace OrderService.Controllers
     public class OrderController : ControllerBase
     {
         private readonly HttpClient _httpClient;
+        //public OrderController()
+        //{
+        //    _httpClient = new HttpClient();
+        //    _httpClient.BaseAddress = new Uri("http://localhost:5171/");
+        //}
+
 
         public OrderController(HttpClient httpClient)
         {
@@ -32,6 +38,7 @@ namespace OrderService.Controllers
         [NonAction]
         public async Task<bool> IsProductAvailable(int productId)
         {
+            //convert JsonData to ProductAvailabiltityDTO
             var response = await _httpClient.GetFromJsonAsync<ProductAvailabilityDto>(
                 $"api/products/{productId}/availability");
 

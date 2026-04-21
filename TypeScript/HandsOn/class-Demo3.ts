@@ -23,7 +23,7 @@ class Employee
     }
 }
 let emp:Employee=new Employee(100,'Rohan',new Date(2021,2,20),23000,'Programmer');
-// emp.show();
+emp.show();
 //array of objects
 let employees:Employee[]=[
     new Employee(100,'Rohan',new Date(2021,2,20),23000,'Programmer'),

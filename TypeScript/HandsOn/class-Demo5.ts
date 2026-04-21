@@ -1,19 +1,22 @@
-class Calculate
-{
-    public Add(a:number,b:number):number//Add() returns a number
+class Calculate {
+    public Add(a: number, b: number): number//Add() returns a number
     {
-        return a+b;
+        return a + b;
     }
-    public Greet(name:string):string //Greet() returns a string
+    public Greet(name: string): string //Greet() returns a string
     {
-        return 'Hello '+name
+        return 'Hello ' + name
     }
-    public GetFlowers():string[] //GetFlowers() returns an array of strings
+    public GetFlowers(): string[] //GetFlowers() returns an array of strings
     {
-        return ["Rose","Lilly","Tulips"]
+        return ["Rose", "Lilly", "Tulips"]
+    }
+    public Message(): void {
+        console.log('Hello TypeScript!!!');
     }
 }
-let calc=new Calculate();
-console.log(calc.Add(12,23))
+let calc = new Calculate();
+console.log(calc.Add(12, 23))
 console.log(calc.GetFlowers())
 console.log(calc.Greet('Sachin'))
+calc.Message();

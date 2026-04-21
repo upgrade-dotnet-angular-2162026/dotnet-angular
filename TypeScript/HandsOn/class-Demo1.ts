@@ -1,11 +1,11 @@
+export {}
 class Student
 {
     //varialbe
-    public sId:number;
-    public sName:string;
+    public sId?:number;
+    public sName?:string;
     //method
-     show()
-    {
+    show(): void {
         console.log(`Id:${this.sId} Name:${this.sName}`)
     }
 }
@@ -19,4 +19,5 @@ let stu:Student=new Student(); //typescript style
 stu.sId=2;
 stu.sName='Karan';
 stu.show()
-let a=10;
+let a=10; //default type is any
+let n:number=10;
