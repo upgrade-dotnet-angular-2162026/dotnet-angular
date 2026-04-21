@@ -1,0 +1,84 @@
+
+# 📝 Assignment 1: Inheritance (OOP Concept)
+
+## 🎯 Problem Statement
+
+Design a **Vehicle Management System** using inheritance.
+
+## 📌 Requirements
+
+1. Create a base class `Vehicle` with:
+
+   * `brand: string`
+   * `speed: number`
+   * Method: `move()` → prints `"Vehicle is moving"`
+
+2. Create derived classes:
+
+   * `Car`
+   * `Bike`
+
+3. Each child class should:
+
+   * Override `move()` method
+   * Add its own property:
+
+     * `Car` → `fuelType`
+     * `Bike` → `hasGear`
+
+4. Create objects and demonstrate:
+
+   * Method overriding
+   * Access to parent properties
+
+---
+
+
+## 💡 Sample Expected Output
+
+```id="r8nqsp"
+Car is moving at 80 km/h
+Bike is moving at 60 km/h
+```
+
+---
+
+# 📝 Assignment 2: Interface + Class Implementation
+
+## 🎯 Problem Statement
+
+Design a **Payment Processing System** using interfaces.
+
+## 📌 Requirements
+
+1. Create an interface `Payment` with:
+
+   * `amount: number`
+   * Method: `pay(): void`
+
+2. Implement the interface in multiple classes:
+
+   * `CreditCardPayment`
+   * `UPIPayment`
+
+3. Each class should:
+
+   * Implement `pay()` differently
+   * Print payment method-specific message
+
+4. Add one more interface:
+
+   * `Refundable` with method `refund(): void`
+
+5. Make only one class (e.g., `CreditCardPayment`) implement both interfaces
+
+
+
+## 💡 Sample Expected Output
+
+```id="i9h7nb"
+Paid 1000 using Credit Card
+Refund initiated to Credit Card
+
+Paid 500 using UPI
+
