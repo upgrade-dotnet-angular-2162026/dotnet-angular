@@ -26,6 +26,7 @@
 
             // Assign method to delegate
             GreetDelegate greet = greeter.EnglishGreeting;
+            //invoking method
             greet("John");
 
             // Change method dynamically
