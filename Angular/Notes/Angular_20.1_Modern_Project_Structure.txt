@@ -1,0 +1,49 @@
+
+Angular 20.1 - Modern Project Structure
+
+Project Structure:
+my-app/
+├── src/
+│   ├── app/
+│   │   ├── app.ts
+│   │   ├── app.html
+│   │   ├── app.css
+│   │   └── app.config.ts
+│   ├── main.ts
+│   └── styles.css
+├── angular.json
+├── package.json
+├── tsconfig.json
+└── README.md, .gitignore, etc.
+
+File Descriptions:
+- app.ts: Root standalone component (replaces app.component.ts)
+- app.html: Template for root component
+- app.css: Component-scoped styles
+- app.config.ts: Replaces app.module.ts; configures routes/providers
+- main.ts: Bootstraps the app using bootstrapApplication()
+- styles.css: Global styles
+
+Modern vs Classic Angular Structure:
+Modern Angular (v17+):
+- Uses standalone components
+- Uses app.ts instead of app.component.ts
+- Uses app.config.ts instead of app.module.ts
+- No environments/ or assets/ folders by default
+- Uses bootstrapApplication instead of NgModule
+
+Classic Angular (Pre-v17):
+- Uses NgModule
+- app.component.ts, app.module.ts structure
+- Default inclusion of environments/ and assets/ folders
+
+Benefits of Modern Structure:
+- Cleaner structure with less boilerplate
+- Faster startup and more modular
+- Standalone components improve scalability
+- Better suited for future Angular evolution
+
+Optional Folders You Can Add:
+- assets/: For static files (images, icons, etc.)
+- environments/: For dev/prod configurations (manually added)
+- shared/, core/: For reusable logic/components/services
