@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table table-stripped">
+        <tr>
+            <td>UserName</td>
+            <td>
+                <input type="text" [(ngModel)]="user.username" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>
+                <input type="password" [(ngModel)]="user.password" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-info" (click)="validate()">Login</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <span class="text-warning">{{message}}</span>
+            </td>
+        </tr>
+    </table>
+</div>
