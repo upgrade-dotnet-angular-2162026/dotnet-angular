@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>{{title}}</h1>
+    <h1 [innerText]="title" [style.color]="textColor"></h1>
+    <button [disabled]="isDisabled">ClickMe</button>
+    <img [src]="imgsrc" [width]="width" [height]="height">
+    Enter Name: <input type="text" value="{{name}}">
+    Enter Name:<input type="text" [value]="name" />
+</div>

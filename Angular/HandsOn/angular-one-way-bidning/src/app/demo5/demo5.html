@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>count:{{count}}</h2>
+    <button class="btn btn-primary" (click)="increment()">ClickMe</button>
+    <button class="btn" (click)="greet('Virat')">Greet</button>
+    Enter Name <input type="text" (input)="getValue($event)">
+    <button (click)="greet(value)" class="btn btn-info">Click</button>
+    <h3>Hello,{{value}}</h3>
+    <input type="text" [value]="name" (input)="name=($event.target).value" />
+    <h4>Hi,{{name}}</h4>
+</div>

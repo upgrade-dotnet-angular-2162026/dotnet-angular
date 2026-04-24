@@ -1,0 +1,30 @@
+<div class="container" style="margin: 10px;">
+    <div class="row">
+        <div class="col-2">
+            <label>Enter City</label>
+        </div>
+        <div class="col-6">
+            <input type="text" [(ngModel)]='city' class="form-control">
+        </div>
+        <div class="col-4">
+            <button (click)="addCity()" class="btn btn-info">Add City</button>
+        </div>
+
+    </div>
+    <h3>Indian Cities</h3>
+    <table class="table tablehovered">
+        <thead>
+            <tr>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(city of cities;track $index)
+            {
+            <tr>
+                <td>{{city}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" [(ngModel)]="book.name">
+            </td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>
+                <input type="number" [(ngModel)]="book.price">
+            </td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td>
+                <select [(ngModel)]="book.author">
+                    <option>Microsoft</option>
+                    <option>Google</option>
+                    <option>Meta</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="addBook()">Add Book</button>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    @if(isAvalable)
+    {
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(book of books; track $index)
+            {
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.name}}</td>
+                <td><i class="bi bi-currency-rupee"></i> {{book.price}}</td>
+                <td>{{book.author}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>

@@ -29,6 +29,7 @@ namespace HandsOnDelegates_Demo5
 
             Console.WriteLine(cart.ApplyDiscount(festivalDiscount, 3000)); // 2500
             Console.WriteLine(cart.ApplyDiscount(regularDiscount, 3000));  // 2900
+            Console.WriteLine(cart.ApplyDiscount((amt)=>amt-1000, 10000));
         }
     }
 
