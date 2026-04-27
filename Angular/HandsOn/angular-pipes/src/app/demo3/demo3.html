@@ -1,0 +1,8 @@
+<div>
+    <ul>
+        @for(p of persons;track $index)
+        {
+        <li>{{p.name|gender:p.gender}}</li>
+        }
+    </ul>
+</div>
