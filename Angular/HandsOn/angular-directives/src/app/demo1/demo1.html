@@ -5,9 +5,9 @@
     </li>
 </ul>
 <hr>
-<!-- @for(let product of products; track by product.id)
+@for( product of products; track product.name)
 {
 <li>
-    {{product.id}}. {{product.name}} - ${{product.price}}
+    {{product.name}} - ${{product.price}}
 </li>
-} -->
+}

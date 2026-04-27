@@ -36,6 +36,8 @@ export const routes: Routes = [
             { path: 'user-orders', component: UserOrders }
         ]
     },
+    // set the defaul path
     { path: '', redirectTo: 'home', pathMatch: 'full' },
+    // If page not found navigate to the PageNotFound
     { path: '**', component: PageNotFound }
 ];

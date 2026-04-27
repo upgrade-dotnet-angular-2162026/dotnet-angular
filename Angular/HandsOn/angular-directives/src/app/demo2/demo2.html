@@ -7,3 +7,9 @@
     <p>Please <a href="#">login</a> to continue.</p>
     <button (click)="logIn()">LogIn</button>
 </ng-template>
+<hr>
+@if(isLoggedIn)
+{
+<p>Welcome back, {{username}}! 🎉</p>
+<button (click)="logOut()">LogOut</button>
+}

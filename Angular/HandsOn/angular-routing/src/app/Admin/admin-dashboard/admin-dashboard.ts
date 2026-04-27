@@ -13,6 +13,7 @@ export class AdminDashboard {
     this.route.params.subscribe(params => {
       this.username = params['uname'];
       console.log(params['uname']);
+      
     });
   }
 }
