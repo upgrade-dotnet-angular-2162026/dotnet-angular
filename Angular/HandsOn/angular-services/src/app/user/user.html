@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>Enter User</td>
+            <td>
+                <input type="text" [(ngModel)]='newUser' />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button (click)="addUser()">AddUser</button>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <table class="table table-stripped">
+        <tr>
+            <th>Users</th>
+        </tr>
+        @for(user of users; track $index)
+        {
+        <tr>
+            <td>{{user}}</td>
+        </tr>
+        }
+    </table>
+</div>

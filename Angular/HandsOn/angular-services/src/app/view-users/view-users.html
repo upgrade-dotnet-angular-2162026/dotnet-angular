@@ -1,0 +1,13 @@
+<div class="container">
+    <table class="table table-stripped">
+        <tr>
+            <th>Users</th>
+        </tr>
+        @for(user of users; track $index)
+        {
+        <tr>
+            <td>{{user}}</td>
+        </tr>
+        }
+    </table>
+</div>
