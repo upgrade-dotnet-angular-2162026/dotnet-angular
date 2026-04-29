@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../user';
 @Component({
   selector: 'app-login',
   imports: [FormsModule],
@@ -9,7 +8,7 @@ import { User } from '../user';
   styleUrl: './login.css'
 })
 export class Login {
-  users: User[] = [{ username: 'rohan', password: 'admin', role: 'admin' },
+  users: any[] = [{ username: 'rohan', password: 'admin', role: 'admin' },
   { username: 'priya', password: '12345', role: 'customer' }];
   username: string = '';
   password: string = '';
@@ -18,7 +17,6 @@ export class Login {
   validate() {
     console.log(this.username + ' ' + this.password);
     let user = this.users.find(u => u.username === this.username && u.password === this.password);
-    console.log(user);
     if (user) {
       if (user.role === 'admin') {
         //navigate to admin dashboard
