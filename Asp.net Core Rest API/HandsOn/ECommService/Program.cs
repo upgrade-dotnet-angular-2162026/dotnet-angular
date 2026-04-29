@@ -19,6 +19,16 @@ namespace ECommService
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            //configure cors
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin() //it allows any origin to access the API, you can specify the allowed origins instead of using AllowAnyOrigin()
+                          .AllowAnyMethod() //it allows any HTTP method (GET, POST, PUT, DELETE, etc.) to be used when accessing the API
+                          .AllowAnyHeader(); //it allows any header to be sent in the request
+                });
+            });
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
@@ -31,7 +41,7 @@ namespace ECommService
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("AllowAll");
             app.UseAuthorization();
 
 

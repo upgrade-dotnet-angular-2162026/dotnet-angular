@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  //http=inject(HttpClient); Initiate object using DI
+  //private http=inject(HttpClient); Initiate object using DI
   constructor(private http: HttpClient) {
 
   }
   getUsers(): Observable<any> {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+    return this.http.
+    get('https://jsonplaceholder.typicode.com/users');
   }
 }
