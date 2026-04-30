@@ -1,4 +1,5 @@
 <div class="container">
+    <button class="btn btn-primary" (click)="addNew()">Add Product</button>
     <table class="table table-stripped">
         <thead>
             <tr>
@@ -17,8 +18,8 @@
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
                 <td>
-                    <button class="btn btn-primary">Edit</button> &nbsp;
-                    <button class="btn btn-info">Delete</button>
+                    <button class="btn btn-primary" (click)="edit(product.name)">Edit</button> &nbsp;
+                    <button class="btn btn-info" (click)="delete(product.id)">Delete</button>
                 </td>
 
             </tr>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProductUpdate } from '../../Models/product-update';
 import { ChangeDetectorRef } from '@angular/core';
 import { ProductRead } from '../../Models/product-read';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-edit',
   imports: [FormsModule],
@@ -15,10 +16,14 @@ export class Edit {
   stock: number = 0;
   productUpdate: ProductUpdate = {}
   product: ProductRead = {};
-  name: string = 'Remote';
+  name: string = '';
   private http = inject(HttpClient);
   private cd = inject(ChangeDetectorRef);
+  private activatedRoute = inject(ActivatedRoute);
   ngOnInit() {
+    //read route parameter value
+    this.activatedRoute.params.subscribe(param => this.name = param['name']);
+    console.log(this.name);
     this.http.get<ProductUpdate>('http://localhost:5156/api/Product/Search/' + this.name).subscribe(response => {
       this.product = response
       console.log(this.product);
