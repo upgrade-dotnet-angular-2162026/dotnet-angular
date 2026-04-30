@@ -1,0 +1,14 @@
+CLR 
+JIT
+class 
+.net vs mvc 
+code: left join in linq 
+single or default vs firstOrDefault
+value type vs reference type 
+web api vs restapi 
+stored procedure vs function
+Brief introduction about project and modules implemented
+ Basic C# questions - datatypes, enum, structures
+About Asp.net MVC
+.net vs .net core
+About Entity Framework 

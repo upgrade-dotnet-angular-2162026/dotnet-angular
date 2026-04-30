@@ -1,0 +1,100 @@
+ Explain about your details and project experience  and training experience.
+2. How your regular training is happening -  online or in-person.
+3. What is your graduation, like graduated from which like from computer science or something.
+4. Batchelor of engineering or any other branch 
+5. When u passed out?
+6. Worked in all parts like frontend and middle wear and backend ?
+7. Explain Oops concept 
+8. Is it possible to do multiple inheritance in C sharp.    
+9. Difference between abstract class and interface. 
+10. Is it possible to create object for abstract class?
+11. Default access modifiers for interfaces. 
+12. You have a class .You have different methods A ,B, C . You want to override the method in your child class.How?
+13. Provide simple example for polymorphism. 
+14. Is it possible to change the data type of parameter in polymorphism?-like first method have all integer and second method have all string- is it possible?
+15. Design patterns 
+16. Currently what kind of functionality you are developing, how are you tested ,how you make sure it is working fine
+17. Following MVC in project?
+18. Explain about controllers in my project, how many controllers do you have 
+19. What all action methods are in patient entity
+20. How is routing happening 
+21. What is an attribute in routing 
+22. To get the details using http get how this repository flow in your controller of the action method and how it fetch the data from the database 
+23. Are you using any kind of stored procedures for getting the data from the database 
+24. What is stored procedure 
+25. Sequel injection 
+26. Indexes in the table 
+27. Types of indexes 
+28. Write Update query
+29. Write join query
+30. What is JQuery
+31. Any function that is used to select an element in jQuery 
+32. Did you use jQuery in your application development? 
+33. Are you aware of any AI tools that are used for development 
+34. If you want to create a program and if you ask AI, did they produce any code
+35. Are you using any code review,how you make sure your code is correct and behaving correct 
+36. Sprint?
+37. Do u have any questions?
+
+========================================================
+self intro 
+Project related
+Scenario based 
+OOPs
+DATAtypes
+Stored Procedure method diff
+LINQ - SQL left join coding
+Microservice,
+WebAPi vs restApi,
+Addscoped , transient,
+Dependency Injection
+
+=============================================================
+Introduction
+2. What is C#?
+3. OOPs Concepts – Define all with code examples
+4. What is an Interface?
+5. What is a Class?
+6. Interface vs Abstract Class – Differences
+7. List in C#
+8. List vs Dictionary with code examples
+9. Exception Handling
+10. How to Log Errors?
+11. SOLID Principles
+12. Stored Procedures
+13. Normalization
+14. Joins – All types
+15. Primary Key
+16. Foreign Key
+17. DELETE vs DROP vs TRUNCATE
+18. What is DbContext?
+19. Web API Filters
+20. What is JWT (JSON Web Token)?
+21. How to Implement JWT?
+--------------------------------------------------------------------
+Interviewer - Arumugam N :
+Can you explain about Agile methodology?
+Can you explain about html?
+Open notepad and write html syntax.
+State difference between Css and bootstrap.
+What is used of javascript 
+jQuery 
+What is C#
+4 pillars of OOPS
+Explain each of the pillars.
+Interface syntax
+How do you achieve dependency injection
+What are access specifiers
+Difference between stored procedure and function.
+What is view.
+Indexes, types of indexes.
+How you can use Temporary tables.
+What is use of cursor.
+Upto which topic is your curriculum covered till now.
+Entity framework approaches.
+Explain LINQ.
+In linq what is FirstOrDefault.
+For deployment what did you use? Dapper or entity framework.
+How did you connect to database in your project.
+ What is dbSet.
+What is dbContext.

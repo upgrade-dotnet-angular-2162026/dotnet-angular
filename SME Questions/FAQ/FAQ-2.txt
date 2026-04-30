@@ -1,0 +1,13 @@
+Introduction
+Project Explanation
+User Stories developed by me in our Case Study
+Asked to run the application and explain
+Dependency Injection
+Where did You implement Dependency Injection in our project
+How to implement Dependency Injection
+Why should we implement Dependency Injection
+Difference between IActionResult and ActionResult
+Difference between ViewBag,ViewData,TempData and their scope
+Difference between Abstract Classes and Interfaces.
+What is Synchronous and Asynchronus Progamming.
+What is Routing and it's types.

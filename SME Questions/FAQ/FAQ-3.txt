@@ -1,0 +1,14 @@
+self intro
+Project related
+Scenario based
+OOPs
+DATAtypes
+Stored Procedure method diff
+LINQ - SQL left join
+Docker
+MicroService
+Web API
+Dependency injection and What type you are using
+who writes Dependency Injection
+View related
+CLR

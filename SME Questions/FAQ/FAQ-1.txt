@@ -1,0 +1,36 @@
+OOPS Concepts:
+All OOPS concepts: Definitions with coding examples
+What is Interface and Can you write an example of an interface
+Class vs Struct
+Interface vs Abstract Class
+Exception handling
+How to log the errors
+Ways we can add errors to the backend
+Dictionary
+List vs Dictionary
+Coding scenario: I have an employee list with age, name, ID,— how do we add it from the list?
+SOLID principles
+Access modifiers
+Difference between internal and public access modifiers
+Entity Framework Core (EFC):
+What is DbContext?
+What is Data Annotations?
+Different types of approaches in EFC
+Difference between DataReader and DataSet
+Difference between ExecuteScalar and ExecuteNonQuery
+Web API:
+What are Web API filters?
+How to implement an Exception Filter?
+What is Routing and its types?
+Which routing has the highest priority?
+Main return types in Web API
+What kind of result do we get from Web API?
+SQL Server:
+Primary Key
+Difference between UNIQUE and Primary Key
+Aggregate Functions
+Difference between DELETE, DROP, and TRUNCATE
+Normalization
+What does the SQL query DELETE FROM employee WHERE 1=1 do ?
+Query: How to create a Stored Procedure
+How many SQL statements can we add in a Stored Procedure?

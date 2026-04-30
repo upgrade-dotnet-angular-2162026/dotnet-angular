@@ -1,0 +1,46 @@
+Questions Asked and My Responses:
+Self-Introduction
+I gave a clear self-introduction, highlighting my experience, key skills in .NET and Python, and my role in current and past freelance projects.
+
+How do you run your project locally?
+I explained the setup process, including configuring the database, running migrations, setting up environment variables, and using tools like Postman, Swagger, and Visual Studio.
+
+You implemented microservices, right? Show me how.
+I implemented microservices by creating them using different technology stacks — .NET and a Python ML model. I showcased everything directly in the code and tested the service communication using Postman.
+
+What is the difference between DELETE, DROP, and TRUNCATE in SQL?
+I clearly explained:
+
+DELETE: Removes specific records (can use WHERE clause), logs entries, slower.
+
+TRUNCATE: Removes all records, faster, minimal logging, cannot use WHERE.
+
+DROP: Completely deletes the table structure and data.
+
+what C# concepts I have covered so far ?
+
+and I explained in detail the topics , including:
+
+OOP principles (Inheritance, Polymorphism, Encapsulation)
+
+LINQ and Lambda expressions
+
+Async & Await
+
+Dependency Injection
+
+Exception handling
+
+Collections (Generic & Non-generic)
+
+Ado.net, EF Core, Dapper
+
+MVC and Asp.Net Core Web API
+
+Project Methodology
+
+I also mentioned that our team follows the Scrum methodology
+
+I demonstrated how we implemented JWT-based authentication to secure our APIs.
+
+

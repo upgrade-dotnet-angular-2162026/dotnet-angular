@@ -1,0 +1,57 @@
+echnologies used in both front-end and back-end and give explanation of their purposes in our project
+->Asked to expain how we developed and project in both frontend and backend
+->Asked to expain the code of both frontend and backend
+->Did we use EF and what is its use in our project
+->Technology versions
+->What do we need to configure or build a new Angular Application
+->What are the commands we use to check to versions of the prerequistines
+->Scenario based questions on the Complete Angular Folder Structure
+->where do the installed packes be stored
+->where do we configure the angular CLI
+->How can we restrict access to the specific routes
+->Which interface should we implement to use the AuthGuard
+->After the user is authenticated, how can we the pass that token every http request?
+->How can we send the token in every http request?
+->How do we pass the data between the parent and child components
+->What is data binding? Types of data binding. Differences between them?
+->How can we achieve one way and two way data binding?
+->Directives and it's types.How do we implement them and it's usecases
+->Basics of OOPS
+->Does classes support Multiple Inherintence.How can we achieve it.
+->Difference between class and interface
+->Why do w need interfaces
+->Difference between value types and reference types.Examples of those types
+->What are Generic types.
+->Collections and it's type.Asked to write codes for dictonary and how can we access the values from dictionary
+->Linq and asked codes
+->Datatypes of sql and y should we mention type of data
+->How do we get current date and time
+->Gave some scenarios and asked to write queries
+========================================================
+
+1.    introduce yourself
+2.    present the project
+3.    explain the project aim,concepts,uses
+4.    show my contributions
+5.    sql injection
+6.    webapi filters
+7.    From where you got the icons present in the frontend
+8.    where is the bootstrap
+9.    how routing done
+10.   where is routing,childrens 
+11.   authguard concept
+12.   join tables using the project db in sqlserver(join aircraft with flight with bookings with       passengers with their seats and display their names with flightname, dest and orgin)
+13.   explain which approach you used in project
+14.   which oops concept you implemented in project and show
+15.   asked linq queries
+16.   explain all the linq used in your modules in the project 
+17.   codefirst approach and migrations
+18.   directives in angular
+19.   ngmodels
+20.   if using pdfconvert functions ,which module/package you used..what is version
+21.   version of all technologies we use
+22.   JWT and its working
+23.   used Ai for project?
+24.   cli in angular..benefits..uses
+25.   component structure
+26.   services in angular

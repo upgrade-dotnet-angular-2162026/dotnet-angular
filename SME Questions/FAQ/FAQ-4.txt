@@ -1,0 +1,18 @@
+OOPS Concepts like what is class, object, constructor and types
+What is inheritance, polymorphism, abstarction, encapsulation in detail?
+Difference between class and interface?
+Difference between method overloading and method overriding?
+explain microservice architecture?
+What is entity framework?
+what is ASP.NET MVC explain?
+what is agile methodology?
+what are types of joins in sql?
+Explain each and every join?
+take one example write any query using any join?
+Difference between DELETE, DROP and TRUNCATE in sql?
+What are aggregate functions and explain?
+what primary key?
+what is foreign key?
+what is the use of WHERE clause?
+what are DDL, DML commands?
+what is the role of ROLLBACK in sql?
