@@ -28,6 +28,9 @@ export class Login {
       console.log(this.response.token);
       if (this.response.token != '') {
         let role = this.response.role;
+        let token = this.response.token;
+        //add token to the locastorage
+        localStorage.setItem('token', token);
         if (role == 'Admin') {
           this.router.navigateByUrl('/admin-dashboard');
         }

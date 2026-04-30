@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table table-stripped">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+        </thead>
+        <tbody>
+            @for(product of data;track $index)
+            {
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
