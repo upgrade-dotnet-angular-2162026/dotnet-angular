@@ -28,6 +28,15 @@
     <div class="invalid-feedback" *ngIf="password?.errors?.['required']">Password is required</div>
     <div class="invalid-feedback" *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters</div>
   </div>
+  <!-- Mobile -->
+  <div class="mb-3">
+    <label class="form-label">Mobile</label>
+    <input type="number" formControlName="mobile" class="form-control"
+      [ngClass]="{'is-invalid': mobile?.invalid && (mobile?.dirty || mobile?.touched)}">
+    <div class="invalid-feedback" *ngIf="mobile?.errors?.['required']">Mobile is required</div>
+    <div class="invalid-feedback" *ngIf="mobile?.errors?.['pattern']">Invalid Mobile No</div>
+  </div>
+
 
   <button type="submit" class="btn btn-success w-100" [disabled]="regForm.invalid">Register</button>
 </form>

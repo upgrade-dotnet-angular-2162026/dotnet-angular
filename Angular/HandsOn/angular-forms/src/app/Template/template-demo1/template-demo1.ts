@@ -15,6 +15,12 @@ export class TemplateDemo1 {
     console.log(form.value); // { name: "John", email: "john@example.com" }
     console.log(form.value.name); // John
     console.log(form.value.email); // john@example.com
+    let user = {
+      name: form.value.name,
+      email: form.value.email,
+      mobile: form.value.mobile
+    }
+    console.log(user);
 
   }
 
