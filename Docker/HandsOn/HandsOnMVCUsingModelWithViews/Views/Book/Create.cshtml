@@ -1,0 +1,46 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <form action="Create" method="post">
+        <table class="table">
+            <tr>
+                <td>Book Id</td>
+                <td>
+                    <input type="number" name="Id" />
+                </td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" name="Title" />
+                </td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td>
+                    <select name="Author">
+                        <option>Microsoft</option>
+                        <option>Oracle</option>
+                        <option>Google</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    <input type="number" name="Price" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Create" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+

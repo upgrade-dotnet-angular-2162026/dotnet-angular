@@ -1,0 +1,6 @@
+@HandsOnAPIUsingControllersAndModels_HostAddress = http://localhost:5283
+
+GET {{HandsOnAPIUsingControllersAndModels_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
