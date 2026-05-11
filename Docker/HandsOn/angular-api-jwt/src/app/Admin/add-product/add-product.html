@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" [(ngModel)]='name'>
+            </td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>
+                <input type="number" [(ngModel)]='price'>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-success" (click)="add()">Add</button>
+            </td>
+        </tr>
+    </table>
+</div>

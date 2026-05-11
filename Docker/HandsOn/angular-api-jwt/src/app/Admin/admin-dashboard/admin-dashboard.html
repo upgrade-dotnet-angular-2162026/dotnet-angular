@@ -1,0 +1,17 @@
+<div class="container">
+    <p>Welcome to admin-dashboard</p>
+    <table>
+        <tr>
+            <td>
+                <a routerLink="view-products">View Products</a>
+            </td>
+            <td>
+                <a routerLink="add-product">Add Product</a>
+            </td>
+            <td>
+                <button (click)="logOut()" class="btn btn-link">LogOut</button>
+            </td>
+        </tr>
+    </table>
+    <router-outlet></router-outlet>
+</div>
