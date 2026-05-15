@@ -28,6 +28,12 @@ namespace HandsOnAPIUsingControllersAndModels
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            else if(app.Environment.IsProduction())
+            {
+                //use swagger in production environment
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
             app.UseAuthorization();
 
